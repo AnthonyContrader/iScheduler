@@ -1,0 +1,8 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}Introduzione}{4}{section.1}
+\contentsline {section}{\numberline {2}DTO}{4}{section.2}
+\contentsline {section}{\numberline {3}Converter}{5}{section.3}
+\contentsline {section}{\numberline {4}Interfacce e Classi Astratte}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Interfaccia}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Classe Astratta}{7}{subsection.4.2}

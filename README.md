@@ -1,1 +1,2 @@
-# iScheduler
+# SAMPLE
+Sample Projects
