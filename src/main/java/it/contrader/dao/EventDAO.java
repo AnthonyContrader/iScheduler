@@ -10,11 +10,11 @@ import it.contrader.model.Event;
 public class EventDAO {
 
 	private final String QUERY_ALL = "SELECT * FROM event";
-	private final String QUERY_INSERT = "INSERT INTO event (nome, categoria, descrizione, posizione_X, posizione_Y, scadenza) VALUES"
+	private final String QUERY_INSERT = "INSERT INTO event (nome, categoria, descrizione, posizione_X, posizione_Y, scadenza, idUser) VALUES"
 										+ "(?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM event WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE event SET nome=?, categoria=?, descrizione=?, posizione_X=?, posizione_Y, scadenza=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE * FROM event WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE event SET nome=?, categoria=?, descrizione=?, posizione_X=?, posizione_Y=?, scadenza=?, idUser=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM event WHERE id=?";
 	
 	public EventDAO() {
 		
@@ -58,6 +58,7 @@ public class EventDAO {
 			prepareStatement.setFloat(4, eventToInsert.getPosizioneX());
 			prepareStatement.setFloat(5, eventToInsert.getPosizioneY());
 			prepareStatement.setDate(6, eventToInsert.getScadenza());
+			prepareStatement.setInt(7, eventToInsert.getIdUser());
 			prepareStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -82,8 +83,9 @@ public class EventDAO {
 			float posizioneY = resultSet.getFloat("posizione_Y");
 			Date scadenza = resultSet.getDate("scadenza");
 			Event event = new Event(posizioneX, posizioneY, scadenza, nome, descrizione, categoria);
-			event.setId(id);
 			event.setIdUser(idUser);
+			event.setId(id);
+			
 			return event;
 		} catch (SQLException e) {
 			return null;
@@ -115,6 +117,9 @@ public class EventDAO {
 				if(eventToUpdate.getScadenza() == null) {
 					eventToUpdate.setScadenza(eventRead.getScadenza());
 				}
+				if(eventToUpdate.getIdUser() == 0) {
+					eventToUpdate.setIdUser(eventRead.getIdUser());
+				}
 				//Non verificato chiave esterna idUser.
 				
 				PreparedStatement prepareStatement = connection.prepareStatement(QUERY_UPDATE);
@@ -124,6 +129,8 @@ public class EventDAO {
 				prepareStatement.setFloat(4, eventToUpdate.getPosizioneX());
 				prepareStatement.setFloat(5, eventToUpdate.getPosizioneY());
 				prepareStatement.setDate(6, eventToUpdate.getScadenza());
+				prepareStatement.setInt(7, eventToUpdate.getIdUser());
+				prepareStatement.setInt(8, eventToUpdate.getId());
 				int check = prepareStatement.executeUpdate();
 				if(check > 0) return true;
 				else return false;

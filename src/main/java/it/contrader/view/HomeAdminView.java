@@ -23,7 +23,6 @@ public class HomeAdminView extends AbstractView {
 	 */
     public void showResults(Request request) {
     	if(request!=null) {
-    	System.out.println("\n Benvenuto in SAMPLE PROJECT "+request.get("username").toString() + "\n");
     	}
     }
 
@@ -34,7 +33,7 @@ public class HomeAdminView extends AbstractView {
     public void showOptions() {
         System.out.println("-------------MENU------------\n");
         System.out.println(" Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti  [E]sci");
+        System.out.println("[V]Eventi [U]tenti  [E]sci");
         //Il metodo che salva l'input nella stringa choice.
         //getInput() è definito in AbstractView.
         choice = this.getInput();
@@ -52,10 +51,15 @@ public class HomeAdminView extends AbstractView {
         	this.request.put("mode", "USERLIST");
         	MainDispatcher.getInstance().callAction("User", "doControl", request);
         	break;
- 
+        
+        case "v":
+        	this.request.put("mode", "USERLIST");
+        	MainDispatcher.getInstance().callAction("Event", "doControl", request);
+        	break;
         case "e":
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
+
         default:
         	
             request.put("choice", choice);

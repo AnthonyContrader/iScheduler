@@ -52,7 +52,7 @@ public class UserService {
 
 
 	public boolean delete(int id) {
-		// Questo mtodo chiama direttamente il DAO
+		// Questo metodo chiama direttamente il DAO
 		return userDAO.delete(id);
 	}
 	
