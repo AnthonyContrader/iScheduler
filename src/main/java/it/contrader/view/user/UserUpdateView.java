@@ -36,14 +36,22 @@ public class UserUpdateView extends AbstractView {
 	@Override
 	public void showOptions() {
 		try {
+			final String user = "USER";
+			final String admin = "ADMIN";
+			int choose ;
 			System.out.println("Inserisci id dell'utente:");
 			id = Integer.parseInt(getInput());
 			System.out.println("Inserisci username dell'utente:");
 			username = getInput();
 			System.out.println("Inserisci password dell'utente:");
 			password = getInput();
-			System.out.println("Inserisci tipo dell'utente:");
-			usertype = getInput();
+			System.out.println("Inserisci tipo dell'utente(USER = 1, ADMIN = 2:");
+			choose = getInputCheckValueIntLimit(getInput().toString());
+			if(choose == 1) {
+				usertype = user;
+			}else {
+				usertype = admin;
+			}
 		} catch (Exception e) {
 
 		}

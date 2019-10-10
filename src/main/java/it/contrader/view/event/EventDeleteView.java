@@ -31,7 +31,7 @@ public class EventDeleteView extends AbstractView {
 	@Override
 	public void showOptions() {
 			System.out.println("Inserisci id dell'evento:");
-			id = Integer.parseInt(getInput());
+			id = getInputCheckValueInt(getInput());
 
 	}
 

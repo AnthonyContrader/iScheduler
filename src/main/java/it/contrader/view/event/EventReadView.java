@@ -44,7 +44,7 @@ public class EventReadView extends AbstractView {
 	@Override
 	public void showOptions() {
 		System.out.println("Inserisci l'ID dell'evento:");
-		id = Integer.parseInt(getInput());
+		id = getInputCheckValueInt(getInput());
 	}
 
 	/**

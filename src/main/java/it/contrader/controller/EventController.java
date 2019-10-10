@@ -74,7 +74,7 @@ public class EventController implements Controller {
 				request.put("mode", "mode");
 				MainDispatcher.getInstance().callView(sub_package + "EventUpdate", request);
 				break;
-			case "USERLIST":
+			case "EVENTLIST":
 				List<EventDTO> eventsDTO = eventService.getAll();
 				//Impacchetta la request con la lista degli eventi
 				request.put("events", eventsDTO);
@@ -109,11 +109,11 @@ public class EventController implements Controller {
 					MainDispatcher.getInstance().callView("HomeAdmin", null);
 					break;
 				default:
-					MainDispatcher.getInstance().callView("Login", null);
+					MainDispatcher.getInstance().callView("Event", null);
 
 				}
 			default:
-				MainDispatcher.getInstance().callView("Login", null);
+				MainDispatcher.getInstance().callView("Event", null);
 	
 		}
 	}

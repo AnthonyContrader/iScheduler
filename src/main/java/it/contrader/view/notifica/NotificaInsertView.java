@@ -32,12 +32,18 @@ public class NotificaInsertView extends AbstractView{
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci notificato della notifica:");
-			notificato = Boolean.parseBoolean(getInput().toString());
+			int choose;
+			System.out.println("Inserisci notificato della notifica( si = 1, no = 2):");
+			choose = getInputCheckValueIntLimit(getInput().toString());
+			if(choose == 1 ) {
+				notificato = true;
+			}else {
+				notificato = false;
+			}
 			System.out.println("Inserisci notifica_tempo della notifica:");
 			notifica_tempo = getInput();
 			System.out.println("Inserisci id_event della notifica:");
-			id_event = Integer.parseInt(getInput().toString());
+			id_event = getInputCheckValueInt(getInput());
 	}
 
 	/**

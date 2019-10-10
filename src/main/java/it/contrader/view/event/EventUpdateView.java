@@ -39,9 +39,9 @@ public class EventUpdateView extends AbstractView {
 	public void showOptions() {
 		try {
 			System.out.println("Inserisci l'id dell'evento:");
-			id = Integer.parseInt(getInput());
+			id = getInputCheckValueInt(getInput().toString());
 			System.out.println("Inserisci l'id dell'utente legato all'evento:");
-			idUser = Integer.parseInt(getInput());
+			idUser = getInputCheckValueInt(getInput().toString());
 			System.out.println("Inserisci il nome dell'evento:");
 			nome = getInput();
 			System.out.println("Inserisci la descrizione dell'evento:");
@@ -51,9 +51,9 @@ public class EventUpdateView extends AbstractView {
 			System.out.println("Inserisci la scadenza dell'evento:");
 			scadenza = getInputDate();
 			System.out.println("Inserisci la cordinata X:"); // Dovrebbe essere calcolata automaticamente.
-			posizioneX = Float.parseFloat(getInput());
+			posizioneX = getInputCheckValueFloat(getInput().toString());
 			System.out.println("Inserisci la cordinata Y:");
-			posizioneY = Float.parseFloat(getInput());
+			posizioneY = getInputCheckValueFloat(getInput().toString());
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace());
 		}

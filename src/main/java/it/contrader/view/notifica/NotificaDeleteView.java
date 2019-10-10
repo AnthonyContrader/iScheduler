@@ -22,7 +22,7 @@ public class NotificaDeleteView extends AbstractView {
 	
 	public void showOptions() {
 		System.out.println("Inserisci id notifica:");
-		id = Integer.parseInt(getInput());
+		id = getInputCheckValueInt(getInput());
 	}
 
 	public void submit() {

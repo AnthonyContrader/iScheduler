@@ -9,7 +9,7 @@ import it.contrader.view.AbstractView;
 public class EventInsertView extends AbstractView{
 	private Request request;
 
-	private int idUser,id;
+	private int idUser;
 	private String nome,categoria,descrizione;
 	private Date scadenza;
 	private float posizioneX, posizioneY;
@@ -41,14 +41,14 @@ public class EventInsertView extends AbstractView{
 			descrizione = getInput();
 			System.out.println("Inserisci la categoria dell'evento:");
 			categoria = getInput();
-			System.out.println("Inserisci la scadenza dell'evento:");
+			System.out.println("Inserisci la scadenza dell'evento(formato YYYY-MM-DD):");
 			scadenza = getInputDate();
 			System.out.println("Inserisci la cordinata X:"); // Dovrebbe essere calcolata automaticamente.
-			posizioneX = Float.parseFloat(getInput().toString());
+			posizioneX = getInputCheckValueFloat(getInput().toString());
 			System.out.println("Inserisci la cordinata Y:");
-			posizioneY = Float.parseFloat(getInput().toString());
+			posizioneY = getInputCheckValueFloat(getInput().toString());
 			System.out.println("Inserisci l'id utente:");
-			idUser = Integer.parseInt(getInput().toString());
+			idUser = getInputCheckValueInt(getInput().toString());
 			
 	}
 

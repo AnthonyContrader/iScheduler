@@ -30,14 +30,20 @@ public class NotificaUpdateView extends AbstractView {
 	@Override
 	public void showOptions() {
 		try {
+			int choose;
 			System.out.println("Inserisci id della notifica:");
-			id = Integer.parseInt(getInput());
+			id = getInputCheckValueInt(getInput());
 			System.out.println("Inserisci id_event");
-			id_event = Integer.parseInt(getInput());
+			id_event = getInputCheckValueInt(getInput());
 			System.out.println("inserisci testo di prova");
 			notifica_tempo = getInput();
-			System.out.println("Inserisci notificato o true o false");
-			notificato = Boolean.parseBoolean(getInput());
+			System.out.println("Inserisci notificato (si = 1, no = 2)");
+			choose = getInputCheckValueIntLimit(getInput().toString());
+			if(choose == 1 ) {
+				notificato = true;
+			}else {
+				notificato = false;
+			}
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace());
 		}

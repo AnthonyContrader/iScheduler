@@ -31,7 +31,7 @@ public class UserDeleteView extends AbstractView {
 	@Override
 	public void showOptions() {
 			System.out.println("Inserisci id dell'utente:");
-			id = Integer.parseInt(getInput());
+			id = getInputCheckValueInt(getInput());
 
 	}
 
