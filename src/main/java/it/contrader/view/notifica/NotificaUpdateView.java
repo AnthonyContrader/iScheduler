@@ -32,18 +32,14 @@ public class NotificaUpdateView extends AbstractView {
 		try {
 			System.out.println("Inserisci id della notifica:");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci data dell'evento");
-			notifica_tempo = getInput();
-			System.out.println("Decidi se la notifica è stata inviata o no ( SI o NO ):");
-			if(getInput().contentEquals("SI")) {
-				notificato = true;
-			} else if (getInput().contentEquals("NO")) {
-				notificato = false;
-			}
-			System.out.println("Inserisci id dell'evento:");
+			System.out.println("Inserisci id_event");
 			id_event = Integer.parseInt(getInput());
+			System.out.println("inserisci testo di prova");
+			notifica_tempo = getInput();
+			System.out.println("Inserisci notificato o true o false");
+			notificato = Boolean.parseBoolean(getInput());
 		} catch (Exception e) {
-
+			System.out.println(e.getStackTrace());
 		}
 		
 	}

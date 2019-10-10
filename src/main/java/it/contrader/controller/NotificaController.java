@@ -22,7 +22,7 @@ public class NotificaController implements Controller {
 		// TODO Auto-generated method stub
 		String mode = (String) request.get("mode");
 		
-		String choice = (String) request.get("choise");
+		String choice = (String) request.get("choice");
 		
 		int id;
 		int id_event;
@@ -43,8 +43,8 @@ public class NotificaController implements Controller {
 			notificato = Boolean.parseBoolean(request.get("notificato").toString());
 			notifica_tempo = request.get("notifica_tempo").toString();
 			
-			NotificaDTO notificatoinsert = new NotificaDTO(id_event, notificato, notifica_tempo);
-			notificaService.insert(notificatoinsert);
+			NotificaDTO notificaToInsert = new NotificaDTO(id_event, notificato, notifica_tempo);
+			notificaService.insert(notificaToInsert);
 			request = new Request();
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "NotificaInsert", request);
@@ -73,7 +73,7 @@ public class NotificaController implements Controller {
 			
 		case "NOTIFICALIST":
 			List<NotificaDTO> notificasDTO = notificaService.getAll();
-			request.put("notifica", notificasDTO);
+			request.put("notificas", notificasDTO);
 			MainDispatcher.getInstance().callView("Notifica", request);
 			break;
 			
@@ -103,7 +103,7 @@ public class NotificaController implements Controller {
 		break;
 
 	case "B":
-		MainDispatcher.getInstance().callView("HomeAdmin", null);
+		MainDispatcher.getInstance().callView("HomeUser", null);
 		break;
 		
 	default:

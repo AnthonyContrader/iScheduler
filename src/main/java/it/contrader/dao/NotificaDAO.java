@@ -15,7 +15,7 @@ public class NotificaDAO {
 private final String QUERY_ALL = "select * from notifica";
 private final String QUERY_CREATE = "insert into notifica(id_event,notificato,notifica_tempo) values (?,?,?)";
 private final String QUERY_READ = "select * from notifica where id=?";
-private final String QUERY_UPDATE = "update notifica set id_event=?, notificato=?,notifica_tempo=?";
+private final String QUERY_UPDATE = "update notifica set id_event=?, notificato=?,notifica_tempo=? where id=? ";
 private final String QUERY_DELETE = "Delete from notifica where id=?";
 
 public NotificaDAO() {

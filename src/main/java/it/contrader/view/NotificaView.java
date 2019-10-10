@@ -20,13 +20,13 @@ public NotificaView() {
 
 public void showResults(Request request) {
 	if(request != null) {
-		System.out.println("/n-----Gestione notifiche-----/n");
-		System.out.println("ID\tIDEVENT\tnotificato?\tData");
+		System.out.println(" \n -----Gestione notifiche----- \n ");
+		System.out.println("ID \t IDEVENT \t testo notifica \t notificato?");
 		System.out.println("-------------------------------");
 		
 		@SuppressWarnings("unchecked")
-		List<NotificaDTO> notifica = (List<NotificaDTO>) request.get("notifica");
-		for(NotificaDTO n : notifica)
+		List<NotificaDTO> notificas = (List<NotificaDTO>) request.get("notificas");
+		for(NotificaDTO n : notificas)
 			System.out.println(n);
 		System.out.println();
 	}

@@ -53,9 +53,10 @@ public class HomeAdminView extends AbstractView {
         	break;
         
         case "v":
-        	this.request.put("mode", "USERLIST");
+        	this.request.put("mode", "EVENTLIST");
         	MainDispatcher.getInstance().callAction("Event", "doControl", request);
         	break;
+        	
         case "e":
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;

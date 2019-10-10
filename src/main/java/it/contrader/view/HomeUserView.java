@@ -6,28 +6,34 @@ import it.contrader.main.MainDispatcher;
 
 public class HomeUserView extends AbstractView{
 
-	String choice;
-
+	private String choice;
+	private Request request;
+	
 	@Override
 	public void showResults(Request request) {
-		System.out.println("\n-----Purtroppo in questo sample l'utente non puà fare nulla, ci scusiamo per il disagio.-----");
+		System.out.println("\n CIAO UTENTE");
 
 	}
 
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("NESSUNA OPZIONE DISPONIBILE!");
-		System.out.println("\n Esatto, puoi solo uscire...");
+		System.out.println("SELEZIONA COSA VUOI FARE");
+		System.out.println("\n [N]otifica [E]sci");
 		choice = this.getInput();
 
 	}
 
 	@Override
 	public void submit() {
-
+		request = new Request();
 		switch (choice) {
-
+		
+		case "n":
+			this.request.put("mode", "NOTIFICALIST");
+			MainDispatcher.getInstance().callAction("Notifica", "doControl", request);
+			break;
+			
 		case "e":
 			MainDispatcher.getInstance().callAction("Login", "doControl", null);
 			break;

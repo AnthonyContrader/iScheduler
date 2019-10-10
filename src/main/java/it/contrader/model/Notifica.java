@@ -30,7 +30,9 @@ public class Notifica {
 	}
 
 	public Notifica (int id, int id_event, boolean notificato, String notifica_tempo) {
+		
 		this.id = id;
+		this.id_event = id_event;
 		this.notifica_tempo = notifica_tempo;
 		this.notificato = notificato;
 		
@@ -74,7 +76,7 @@ public class Notifica {
 	//Trasforma un oggetto in una stringa
 	@Override
 	public String toString() {
-		return  id + "\t"  + notifica_tempo +"\t\t" +   notificato;
+		return  id + "\t" + id_event + "\t"  + notifica_tempo +"\t\t" +   notificato;
 	}
 
 
