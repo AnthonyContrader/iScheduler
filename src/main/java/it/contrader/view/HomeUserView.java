@@ -11,7 +11,14 @@ public class HomeUserView extends AbstractView{
 	
 	@Override
 	public void showResults(Request request) {
-		System.out.println("\n CIAO UTENTE\n");
+		System.out.println("\n|| ||||||| |||||| ||   || ||||||| |||    ||   || ||     |||||||  ||||||");
+		System.out.println("|| ||      ||  	  ||   || ||      || ||	 ||   || ||     ||       ||  ||");
+		System.out.println("|| ||||||| ||     ||||||| |||||	  ||  || ||   || ||     |||||    ||||  ");
+		System.out.println("||      || ||     ||   || ||      || ||	 ||   || ||     ||       || ||");
+		System.out.println("|| ||||||| |||||| ||   || ||||||| ||||   ||||||| |||||| |||||||  ||  ||\n");
+		
+		
+		System.out.println("CIAO UTENTE\n");
 
 	}
 

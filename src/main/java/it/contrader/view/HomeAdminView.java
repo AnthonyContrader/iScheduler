@@ -23,6 +23,12 @@ public class HomeAdminView extends AbstractView {
 	 */
     public void showResults(Request request) {
     	if(request!=null) {
+    		System.out.println("\n|| ||||||| |||||| ||   || ||||||| |||    ||   || ||     |||||||  ||||||");
+    		System.out.println("|| ||      ||  	  ||   || ||      || ||	 ||   || ||     ||       ||  ||");
+    		System.out.println("|| ||||||| ||     ||||||| |||||	  ||  || ||   || ||     |||||    ||||  ");
+    		System.out.println("||      || ||     ||   || ||      || ||	 ||   || ||     ||       || ||");
+    		System.out.println("|| ||||||| |||||| ||   || ||||||| ||||   ||||||| |||||| |||||||  ||  ||\n");
+    		
     		System.out.println("\n SALVE ADMIN\n");
     	}
     }
