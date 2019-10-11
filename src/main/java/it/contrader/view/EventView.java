@@ -18,9 +18,9 @@ public class EventView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if(request != null) {
-			System.out.println("\n------------------- Gestione eventi ----------------\n");
-			System.out.println("ID\t\tNome\t\tCategoria\tDescrizione\tScadenza\tCordinate\tIDUtente");
-			System.out.println("----------------------------------------------------\n");
+			System.out.println("\n-------------------------------------- Gestione eventi --------------------------------------------\n");
+			System.out.println("ID\t\tNome\tCategoria\tDescrizione\tScadenza\tCordinate\tIDUtente");
+			System.out.println("-----------------------------------------------------------------------------------------------------\n");
 
 			@SuppressWarnings("unchecked")
 			List<EventDTO> events = (List<EventDTO>) request.get("events");

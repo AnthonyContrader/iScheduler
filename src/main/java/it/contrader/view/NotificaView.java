@@ -34,7 +34,6 @@ public void showResults(Request request) {
 
 @Override
 public void showOptions() {
-	System.out.println("Cosa vuoi fare di questa notifica?");
 	System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 	this.choice = getInput();
 }

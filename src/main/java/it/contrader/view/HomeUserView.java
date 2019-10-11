@@ -11,15 +11,14 @@ public class HomeUserView extends AbstractView{
 	
 	@Override
 	public void showResults(Request request) {
-		System.out.println("\n CIAO UTENTE");
+		System.out.println("\n CIAO UTENTE\n");
 
 	}
 
 	@Override
 	public void showOptions() {
 		System.out.println("-------------MENU------------\n");
-		System.out.println("SELEZIONA COSA VUOI FARE");
-		System.out.println("\n [N]otifica [E]sci");
+		System.out.println("[N]otifica [E]sci");
 		choice = this.getInput();
 
 	}
