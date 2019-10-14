@@ -10,7 +10,7 @@ import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.Notifica;
 
 //Qui ci scrivi cosa deve uscire scritto in MySQL
-public class NotificaDAO {
+public class NotificaDAO implements DAO<Notifica>{
 	
 private final String QUERY_ALL = "select * from notifica";
 private final String QUERY_CREATE = "insert into notifica(id_event,notificato,notifica_tempo) values (?,?,?)";
