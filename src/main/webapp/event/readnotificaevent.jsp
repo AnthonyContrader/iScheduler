@@ -26,6 +26,7 @@
 			<th></th>
 		</tr>
 		<%
+			int id=Integer.parseInt(request.getParameter("id"));
 			for(NotificaDTO n : list){	
 		%>
 		<tr>
@@ -35,7 +36,27 @@
 			<td><a href=NotificaServlet?mode=delete&id=<%=n.getId() %>>Delete</a></td>
 		</tr>
 		<%} %>
-	</table>	
+	</table>
+
+<form id="floatright" action="NotificaServlet?mode=insert&id=<%=id%>" method="post">
+	<div class="row">
+		<div class="col-25">
+			<label for="notificato">Notifica Inviata</label>
+		</div>
+		<div class="col-75">
+			<input type="text" id="notificato" name="notificato" placeholder="Inserisci notificato">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="descrizione">Description</label>
+		</div>
+		<div class="col-75">
+			<input type="text" id="descrizione" name="notifica_tempo" placeholder="Inserisci descrizione">
+		</div>
+	</div>
+	<button type="submit">Insert</button>
+</form>	
 </div>
 
 <%@ include file="../css/footer.jsp" %>
