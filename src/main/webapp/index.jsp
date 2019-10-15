@@ -6,7 +6,11 @@
 <title>Login SAMPLE</title>
 </head>
 <body>
-
+		<br>
+		<br>
+		<br>
+		<br>
+		<p style="text-align:center"><h1>LOGIN</h1></p>
 		<form class="login" action="LoginServlet" method="post">
 
 				<label for="user">Username: </label>
