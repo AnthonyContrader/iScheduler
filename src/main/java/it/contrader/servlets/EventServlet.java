@@ -37,6 +37,12 @@ public class EventServlet extends HttpServlet{
 		request.setAttribute("list", listDTO);
 	}
 	
+	public void updateListAll(HttpServletRequest request) {
+		Service<EventDTO> EventService = new EventService();
+		List<EventDTO> listDTO = EventService.getAll();
+		request.setAttribute("list", listDTO);
+	}
+	
 	public void updateNotificaList(HttpServletRequest request) {
 		Service<NotificaDTO> NotificaService = new NotificaService();
 		int idEvent = Integer.parseInt(request.getParameter("id"));
@@ -60,6 +66,9 @@ public class EventServlet extends HttpServlet{
 		Float posizioneX,posizioneY;
 		
 		switch(mode.toUpperCase()) {
+		case "EVENTLISTALL":
+			updateListAll(request);
+			getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
 		case "EVENTLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
