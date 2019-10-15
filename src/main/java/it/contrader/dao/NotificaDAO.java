@@ -1,12 +1,10 @@
 package it.contrader.dao;
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import it.contrader.utils.ConnectionSingleton;
+import it.contrader.model.Event;
 import it.contrader.model.Notifica;
 
 //Qui ci scrivi cosa deve uscire scritto in MySQL
@@ -15,6 +13,7 @@ public class NotificaDAO implements DAO<Notifica>{
 private final String QUERY_ALL = "select * from notifica";
 private final String QUERY_CREATE = "insert into notifica(id_event,notificato,notifica_tempo) values (?,?,?)";
 private final String QUERY_READ = "select * from notifica where id=?";
+private final String QUERY_READEVENT = "select * from notifica where id_event=?";
 private final String QUERY_UPDATE = "update notifica set id_event=?, notificato=?,notifica_tempo=? where id=? ";
 private final String QUERY_DELETE = "Delete from notifica where id=?";
 
@@ -41,6 +40,31 @@ public List<Notifica> getAll() {
 			e.printStackTrace();
 		}
 	return notificheList;
+}
+
+public List<Notifica> getAllById(int id_event){
+	List<Notifica> notificaList = new ArrayList<>();
+	Connection connection = ConnectionSingleton.getInstance(); //Crea un unica connessione (Singleton ) affinche altri non possano modificare l'oggetto. Mutua Esclusione.
+	try {
+		PreparedStatement prepareStatement = connection.prepareStatement(QUERY_READEVENT);
+		prepareStatement.setInt(1,id_event);
+		
+		ResultSet resultSet = prepareStatement.executeQuery();
+		Notifica notifica;
+		while(resultSet.next()) {
+			int id = resultSet.getInt("id");
+			id_event = resultSet.getInt("id_event");
+			Boolean notificato = resultSet.getBoolean("notificato");
+			String notifica_tempo = resultSet.getString("notifica_tempo");
+			notifica = new Notifica(id_event, notificato, notifica_tempo);
+			notifica.setId(id);
+			notificaList.add(notifica);
+		}
+		
+	}catch(SQLException ex) {
+		ex.printStackTrace();
+	}
+	return notificaList;
 }
 
 public boolean insert(Notifica notificaToInsert) {

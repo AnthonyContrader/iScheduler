@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.EventDTO;
+import it.contrader.dto.NotificaDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.EventService;
+import it.contrader.service.NotificaService;
 import it.contrader.service.Service;
 
 public class EventServlet extends HttpServlet{
@@ -35,9 +37,17 @@ public class EventServlet extends HttpServlet{
 		request.setAttribute("list", listDTO);
 	}
 	
+	public void updateNotificaList(HttpServletRequest request) {
+		Service<NotificaDTO> NotificaService = new NotificaService();
+		int idEvent = Integer.parseInt(request.getParameter("id"));
+		List<NotificaDTO> listDTO = NotificaService.getAllById(idEvent);
+		request.setAttribute("list", listDTO);
+	}
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service<EventDTO> service = new EventService();
+		
 		String mode = request.getParameter("mode");
 		EventDTO dto;
 		int id;
@@ -53,6 +63,10 @@ public class EventServlet extends HttpServlet{
 		case "EVENTLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			break;
+		case "READEVENT":
+			updateNotificaList(request);
+			getServletContext().getRequestDispatcher("/event/readnotificaevent.jsp").forward(request, response);
 			break;
 		case "READ":
 			id = Integer.parseInt(request.getParameter("id"));

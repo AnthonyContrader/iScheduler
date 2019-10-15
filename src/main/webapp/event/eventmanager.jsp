@@ -1,4 +1,3 @@
-<%  %>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
@@ -29,6 +28,7 @@
 			<th>Scadenza</th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 		<%
 			for(EventDTO e : list){	
@@ -43,6 +43,7 @@
 			<td><%=e.getScadenza()%></td>
 			<td><a href=EventServlet?mode=read&update=true&id=<%=e.getId()%>>Edit</a></td>
 			<td><a href=EventServlet?mode=delete&id=<%=e.getId() %>>Delete</a></td>
+			<td><a href=EventServlet?mode=readevent&id=<%=e.getId() %>>View Not.</a></td>
 		</tr>
 		
 		<% } %>
