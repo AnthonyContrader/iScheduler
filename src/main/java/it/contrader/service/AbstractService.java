@@ -1,5 +1,6 @@
 package it.contrader.service;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.List;
 
 import it.contrader.converter.Converter;
@@ -26,6 +27,10 @@ public abstract class AbstractService<Entity,DTO> implements Service<DTO> {
 		return converter.toDTOList(dao.getAll());
 	}
 
+	@Override
+	public List<DTO> getAllById(int id){
+		return converter.toDTOList(dao.getAllById(id));
+	}
 	@Override
 	public DTO read(int id) {
 		// Ottiene un'entità e la restituisce convertendola in DTO

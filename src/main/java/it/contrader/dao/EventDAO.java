@@ -13,6 +13,7 @@ public class EventDAO implements DAO<Event> {
 	private final String QUERY_INSERT = "INSERT INTO event (nome, categoria, descrizione, posizione_X, posizione_Y, scadenza, idUser) VALUES"
 										+ "(?,?,?,?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM event WHERE id=?";
+	private final String QUERY_READUSER = "SELECT * FROM event WHERE idUser=?";
 	private final String QUERY_UPDATE = "UPDATE event SET nome=?, categoria=?, descrizione=?, posizione_X=?, posizione_Y=?, scadenza=?, idUser=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM event WHERE id=?";
 	
@@ -25,6 +26,7 @@ public class EventDAO implements DAO<Event> {
 		Connection connection = ConnectionSingleton.getInstance(); //Crea un unica connessione (Singleton ) affinche altri non possano modificare l'oggetto. Mutua Esclusione.
 		try {
 			Statement statement = connection.createStatement(); //stat e la variabile per eseguire la query.
+			
 			ResultSet resultSet = statement.executeQuery(QUERY_ALL); //esecuzione query e ritorno valori
 			Event event;
 			while(resultSet.next()) {
@@ -90,6 +92,36 @@ public class EventDAO implements DAO<Event> {
 		} catch (SQLException e) {
 			return null;
 		}
+	}
+	
+	public List<Event> getAllById(int idUser){
+		List<Event> eventList = new ArrayList<>();
+		Connection connection = ConnectionSingleton.getInstance(); //Crea un unica connessione (Singleton ) affinche altri non possano modificare l'oggetto. Mutua Esclusione.
+		try {
+			PreparedStatement prepareStatement = connection.prepareStatement(QUERY_READUSER);
+			prepareStatement.setInt(1,idUser);
+			
+			ResultSet resultSet = prepareStatement.executeQuery();
+			Event event;
+			while(resultSet.next()) {
+				int id = resultSet.getInt("id");
+				idUser = resultSet.getInt("idUser");
+				String nome = resultSet.getString("nome");
+				String descrizione = resultSet.getString("descrizione");
+				String categoria = resultSet.getString("categoria");
+				float posizioneX = resultSet.getFloat("posizione_X");
+				float posizioneY = resultSet.getFloat("posizione_Y");
+				Date scadenza = resultSet.getDate("scadenza");
+				event = new Event(posizioneX, posizioneY, scadenza, nome, descrizione,categoria);
+				event.setId(id);
+				event.setIdUser(idUser);
+				eventList.add(event);
+			}
+			
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}
+		return eventList;
 	}
 
 

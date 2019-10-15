@@ -1,6 +1,8 @@
 package it.contrader.service;
 
 
+import java.util.List;
+
 import it.contrader.converter.EventConverter;
 import it.contrader.dao.EventDAO;
 import it.contrader.dto.EventDTO;
@@ -12,5 +14,7 @@ public class EventService extends AbstractService<Event, EventDTO> {
 		this.dao = new EventDAO();
 		this.converter = new EventConverter();
 	}
+
+	
 
 }

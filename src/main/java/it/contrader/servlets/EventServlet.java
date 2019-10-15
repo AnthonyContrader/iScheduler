@@ -10,8 +10,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import it.contrader.dto.EventDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.service.EventService;
 import it.contrader.service.Service;
 
@@ -23,8 +25,13 @@ public class EventServlet extends HttpServlet{
 	}
 	
 	public void updateList(HttpServletRequest request) {
-		Service<EventDTO> service = new EventService();
-		List<EventDTO> listDTO = service.getAll();
+		Service<EventDTO> EventService = new EventService();
+		final HttpSession session =  request.getSession();
+		//VERIFICARE CHE FUNZIONI IL CAST !
+		UserDTO user = (UserDTO) session.getAttribute("user");
+		//-----------------------------------------------------
+		
+		List<EventDTO> listDTO = EventService.getAllById(user.getId());;
 		request.setAttribute("list", listDTO);
 	}
 	
@@ -53,14 +60,17 @@ public class EventServlet extends HttpServlet{
 			request.setAttribute("dto", dto);
 			
 			if(request.getParameter("update") == null) {
-				getServletContext().getRequestDispatcher("/event/updateevent.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/event/readevent.jsp").forward(request, response);
 			}
 			
-			else getServletContext().getRequestDispatcher("/event/eventupdate.jsp").forward(request, response);
+			else getServletContext().getRequestDispatcher("/event/updateevent.jsp").forward(request, response);
 			
 			break;
 		case "INSERT":
-			idUser = Integer.parseInt(request.getParameter("idUser").toString());
+			final HttpSession session =  request.getSession();
+			UserDTO user = (UserDTO) session.getAttribute("user");
+			idUser = user.getId();
+			//idUser = Integer.parseInt(request.getParameter("idUser").toString());
 			nome = request.getParameter("nome").toString();
 			categoria = request.getParameter("categoria").toString();
 			descrizione = request.getParameter("descrizione").toString();
