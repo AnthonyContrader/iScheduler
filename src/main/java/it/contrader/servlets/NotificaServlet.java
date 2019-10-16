@@ -125,11 +125,11 @@ break;
 		if(!(request.getParameter("type").equals("all"))) {
 			updateList(request);
 			if(!(request.getParameter("dest").equals("receiver"))) {
-				getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
-			}
-			else {
 				id_event = Integer.parseInt(request.getParameter("id_e"));
 				getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
+			}
+			else {
+				getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
 			}
 		}else {
 			updateListAll(request);
