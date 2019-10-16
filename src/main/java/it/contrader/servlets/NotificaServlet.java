@@ -102,10 +102,11 @@ break;
 
 	case "DELETE":
 		id = Integer.parseInt(request.getParameter("id"));
+		id_event = Integer.parseInt(request.getParameter("id_e"));
 		ans = service.delete(id);
 		request.setAttribute("ans", ans);
 		updateList(request);
-		getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
 		break;
 	}
 	

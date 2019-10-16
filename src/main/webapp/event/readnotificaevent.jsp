@@ -33,7 +33,7 @@
 			<td><a><%=n.getNotificato() %></a></td>
 			<td><a><%=n.getNotifica_tempo() %></a></td>
 			<td><a href=NotificaServlet?mode=read&update=true&id=<%=n.getId()%>>Edit</a></td>
-			<td><a href=NotificaServlet?mode=delete&id=<%=n.getId() %>>Delete</a></td>
+			<td><a href="NotificaServlet?mode=delete&id_e=<%=n.getId_event()%>&id=<%=n.getId()%>">Delete</a></td>
 		</tr>
 		<%} %>
 	</table>
