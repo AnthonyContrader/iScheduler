@@ -34,21 +34,21 @@
 			for(EventDTO e : list){	
 		%>
 		<tr>
-			<td><a href=EventServlet?mode=read&id=<%=e.getId()%>>
+			<td><a href=EventServlet?type=none&mode=read&id=<%=e.getId()%>>
 					<%=e.getNome()%>		
 			</a></td>
 			<td><%=e.getDescrizione() %></td>
 			<td><%=e.getCategoria() %></td>
 			<td><%=e.getPosizioneX()+","+e.getPosizioneY() %></td>
 			<td><%=e.getScadenza()%></td>
-			<td><a href=EventServlet?mode=read&update=true&id=<%=e.getId()%>>Edit</a></td>
-			<td><a href=EventServlet?mode=delete&id=<%=e.getId() %>>Delete</a></td>
-			<td><a href=EventServlet?mode=readevent&id=<%=e.getId() %>>View Not.</a></td>
+			<td><a href=EventServlet?type=none&mode=read&update=true&id=<%=e.getId()%>>Edit</a></td>
+			<td><a href=EventServlet?type=none&mode=delete&id=<%=e.getId() %>>Delete</a></td>
+			<td><a href=EventServlet?type=none&mode=readevent&id=<%=e.getId() %>>View Not.</a></td>
 		</tr>
 		
 		<% } %>
 	</table>
-<form id="floatright" action="EventServlet?mode=insert" method="post">
+<form id="floatright" action="EventServlet?type=none&mode=insert" method="post">
 	<div class="row">
 		<div class="col-25">
 		 <label for="name">Name</label>

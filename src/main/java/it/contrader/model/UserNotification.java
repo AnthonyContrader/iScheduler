@@ -12,7 +12,7 @@ public class UserNotification {
 	 *Per la descrizione della classe far riferimento al Model "UserNotification".
 	 */
 	
-		private int id;
+		
 		@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -56,6 +56,7 @@ public class UserNotification {
 
 		private String nome,notifica_tempo;
 		private boolean notificato;
+		private int id;
 
 	
 		

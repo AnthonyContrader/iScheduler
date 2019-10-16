@@ -26,7 +26,6 @@
 			<th>Descrizione</th>
 			<th>Evento</th>
 			<th></th>
-			<th></th>
 		</tr>
 		<%
 			for (UserNotificationDTO u : list) {
@@ -35,9 +34,7 @@
 			<td><a><%=u.isNotificato()%></a></td>
 			<td><a><%=u.getNotifica_tempo()%></a></td>
 			<td><a><%=u.getNome() %></a></td>
-			<td><a href=NotificaServlet?mode=read&update=true&id=<%=u.getId()%>>Edit</a>
-			</td>
-			<td><a href=NotificaServlet?mode=delete&id=<%=u.getId()%>>Delete</a>
+			<td><a href="NotificaServlet?type=none&dest=receiver&mode=delete&id=<%=u.getId()%>">Delete</a>
 			</td>
 
 		</tr>

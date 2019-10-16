@@ -71,11 +71,17 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		id = Integer.parseInt(request.getParameter("id"));
 		dto = service.read(id);
 		request.setAttribute("dto", dto);
-		
-		if(request.getParameter("update") == null) {
-			getServletContext().getRequestDispatcher("/notifica/readnotifica.jsp").forward(request, response);
+		if(!(request.getParameter("type").equals("all"))) {
+			if(request.getParameter("update") == null) {
+				getServletContext().getRequestDispatcher("/notifica/readnotifica.jsp").forward(request, response);
+			}
+			else getServletContext().getRequestDispatcher("/notifica/updatenotifica.jsp").forward(request,response);
+		}else {
+			if(request.getParameter("update") == null) {
+				getServletContext().getRequestDispatcher("/notifica/readnotificaall.jsp").forward(request, response);
+			}
+			else getServletContext().getRequestDispatcher("/notifica/updatenotificaall.jsp").forward(request,response);
 		}
-		else getServletContext().getRequestDispatcher("/notifica/updatenotifica.jsp").forward(request,response);
 		break;
 		
 	case "INSERT" :
@@ -86,7 +92,12 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		ans = service.insert(dto);
 		request.setAttribute("ans", ans);
 		updateList(request);
-		getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
+		if(!(request.getParameter("type").equals("all"))) {
+			getServletContext().getRequestDispatcher("/EventServlet?type=none&mode=readevent&id="+id_event+"").forward(request, response);
+		}else {
+			getServletContext().getRequestDispatcher("/notifica/notificaallmanager").forward(request, response);
+		}
+		
 		break;
 	
 	case "UPDATE" :
@@ -97,16 +108,31 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		dto = new NotificaDTO(id,id_event,notificato,notifica_tempo);
 		ans = service.update(dto);
 		updateList(request);
-		getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
+		if(!(request.getParameter("type").equals("all"))) {
+			getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
+		}else {
+			getServletContext().getRequestDispatcher("/notifica/notificaallmanager").forward(request, response);
+		}
+		
 break;
 
 	case "DELETE":
 		id = Integer.parseInt(request.getParameter("id"));
-		id_event = Integer.parseInt(request.getParameter("id_e"));
 		ans = service.delete(id);
 		request.setAttribute("ans", ans);
 		updateList(request);
-		getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
+		if(!(request.getParameter("type").equals("all"))) {
+			if(request.getParameter("dest").equals("receiver")) {
+				getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
+			}
+			else {
+				id_event = Integer.parseInt(request.getParameter("id_e"));
+				getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
+			}
+		}else {
+			getServletContext().getRequestDispatcher("/notifica/notificaallmanager.jsp").forward(request, response);
+		}
+		
 		break;
 	}
 	

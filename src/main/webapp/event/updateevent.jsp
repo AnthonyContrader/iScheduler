@@ -14,7 +14,7 @@
 <div class="main">
 	<% EventDTO e = (EventDTO) request.getAttribute("dto"); %>
 	
-	<form id="floatleft" action="EventServlet?mode=update&id=<%=e.getId()%>" method="post">
+	<form id="floatleft" action="EventServlet?type=none&mode=update&id=<%=e.getId()%>" method="post">
 		<div class="row">
 			<div class="col-25">
 			 <label for="event">Event Name</label>

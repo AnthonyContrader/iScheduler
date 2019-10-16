@@ -81,12 +81,20 @@ public class EventServlet extends HttpServlet{
 			id = Integer.parseInt(request.getParameter("id"));
 			dto = service.read(id);
 			request.setAttribute("dto", dto);
-			
-			if(request.getParameter("update") == null) {
-				getServletContext().getRequestDispatcher("/event/readevent.jsp").forward(request, response);
+			if(!(request.getParameter("type").equals("all"))) {
+				if(request.getParameter("update") == null) {
+					getServletContext().getRequestDispatcher("/event/readevent.jsp").forward(request, response);
+				}
+				
+				else getServletContext().getRequestDispatcher("/event/updateevent.jsp").forward(request, response);
+			}else {
+				if(request.getParameter("update") == null) {
+					getServletContext().getRequestDispatcher("/event/readeventall.jsp").forward(request, response);
+				}
+				
+				else getServletContext().getRequestDispatcher("/event/updateeventall.jsp").forward(request, response);
 			}
 			
-			else getServletContext().getRequestDispatcher("/event/updateevent.jsp").forward(request, response);
 			
 			break;
 		case "INSERT":
@@ -113,7 +121,12 @@ public class EventServlet extends HttpServlet{
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			if(!(request.getParameter("type").equals("all"))) {
+				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			}else {
+				getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+			}
+			
 			break;
 		case "UPDATE":
 			id = Integer.parseInt(request.getParameter("id").toString());
@@ -136,14 +149,24 @@ public class EventServlet extends HttpServlet{
 			dto = new EventDTO(id, idUser, posizioneX, posizioneY, scadenza, nome, descrizione, categoria);
 			ans = service.update(dto);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			if(!(request.getParameter("type").equals("all"))){
+				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			}else {
+				getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+			}
+			
 			break;
 		case "DELETE":
 			id = Integer.parseInt(request.getParameter("id"));
 			ans = service.delete(id);
 			request.setAttribute("ans", ans);
 			updateList(request);
-			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			if(!(request.getParameter("type").equals("all"))){
+				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
+			}else {
+				getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+			}
+			
 			break;
 		}
 	}

@@ -32,13 +32,13 @@
 		<tr>
 			<td><a><%=n.getNotificato() %></a></td>
 			<td><a><%=n.getNotifica_tempo() %></a></td>
-			<td><a href=NotificaServlet?mode=read&update=true&id=<%=n.getId()%>>Edit</a></td>
-			<td><a href="NotificaServlet?mode=delete&id_e=<%=n.getId_event()%>&id=<%=n.getId()%>">Delete</a></td>
+			<td><a href=NotificaServlet?type=none&mode=read&update=true&id=<%=n.getId()%>>Edit</a></td>
+			<td><a href="NotificaServlet?type=none&mode=delete&id_e=<%=n.getId_event()%>&id=<%=n.getId()%>">Delete</a></td>
 		</tr>
 		<%} %>
 	</table>
 
-<form id="floatright" action="NotificaServlet?mode=insert&id=<%=id%>" method="post">
+<form id="floatright" action="NotificaServlet?type=none&mode=insert&id=<%=id%>" method="post">
 	<div class="row">
 		<div class="col-25">
 			<label for="notificato">Notifica Inviata</label>
