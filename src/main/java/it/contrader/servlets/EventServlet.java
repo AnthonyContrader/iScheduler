@@ -120,10 +120,11 @@ public class EventServlet extends HttpServlet{
 			dto = new EventDTO(idUser, posizioneX, posizioneY, scadenza, nome, descrizione, categoria);
 			ans = service.insert(dto);
 			request.setAttribute("ans", ans);
-			updateList(request);
 			if(!(request.getParameter("type").equals("all"))) {
+				updateList(request);
 				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			}else {
+				updateListAll(request);
 				getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 			}
 			
@@ -148,10 +149,11 @@ public class EventServlet extends HttpServlet{
 			posizioneY = Float.parseFloat(request.getParameter("posizioneY").toString());
 			dto = new EventDTO(id, idUser, posizioneX, posizioneY, scadenza, nome, descrizione, categoria);
 			ans = service.update(dto);
-			updateList(request);
 			if(!(request.getParameter("type").equals("all"))){
+				updateList(request);
 				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			}else {
+				updateListAll(request);
 				getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 			}
 			
@@ -160,10 +162,11 @@ public class EventServlet extends HttpServlet{
 			id = Integer.parseInt(request.getParameter("id"));
 			ans = service.delete(id);
 			request.setAttribute("ans", ans);
-			updateList(request);
 			if(!(request.getParameter("type").equals("all"))){
+				updateList(request);
 				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			}else {
+				updateListAll(request);
 				getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 			}
 			
