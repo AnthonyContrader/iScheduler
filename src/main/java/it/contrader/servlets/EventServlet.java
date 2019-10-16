@@ -68,7 +68,7 @@ public class EventServlet extends HttpServlet{
 		switch(mode.toUpperCase()) {
 		case "EVENTLISTALL":
 			updateListAll(request);
-			getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 		case "EVENTLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
@@ -89,10 +89,10 @@ public class EventServlet extends HttpServlet{
 				else getServletContext().getRequestDispatcher("/event/updateevent.jsp").forward(request, response);
 			}else {
 				if(request.getParameter("update") == null) {
-					getServletContext().getRequestDispatcher("/event/readeventall.jsp").forward(request, response);
+					getServletContext().getRequestDispatcher("/eventall/readeventall.jsp").forward(request, response);
 				}
 				
-				else getServletContext().getRequestDispatcher("/event/updateeventall.jsp").forward(request, response);
+				else getServletContext().getRequestDispatcher("/eventall/updateeventall.jsp").forward(request, response);
 			}
 			
 			
@@ -124,7 +124,7 @@ public class EventServlet extends HttpServlet{
 			if(!(request.getParameter("type").equals("all"))) {
 				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			}else {
-				getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 			}
 			
 			break;
@@ -152,7 +152,7 @@ public class EventServlet extends HttpServlet{
 			if(!(request.getParameter("type").equals("all"))){
 				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			}else {
-				getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 			}
 			
 			break;
@@ -164,7 +164,7 @@ public class EventServlet extends HttpServlet{
 			if(!(request.getParameter("type").equals("all"))){
 				getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			}else {
-				getServletContext().getRequestDispatcher("/event/eventallmanager.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
 			}
 			
 			break;

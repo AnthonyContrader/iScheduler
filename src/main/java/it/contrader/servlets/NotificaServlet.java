@@ -60,7 +60,7 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 	switch (mode.toUpperCase()) {
 	case "NOTIFICALISTALL":
 		updateListAll(request);
-		getServletContext().getRequestDispatcher("/notifica/notificaallmanager.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/notificaall/notificaallmanager.jsp").forward(request, response);
 		break;
 	case "NOTIFICALIST" :
 		updateList(request);
@@ -78,9 +78,9 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 			else getServletContext().getRequestDispatcher("/notifica/updatenotifica.jsp").forward(request,response);
 		}else {
 			if(request.getParameter("update") == null) {
-				getServletContext().getRequestDispatcher("/notifica/readnotificaall.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/notificaall/readnotificaall.jsp").forward(request, response);
 			}
-			else getServletContext().getRequestDispatcher("/notifica/updatenotificaall.jsp").forward(request,response);
+			else getServletContext().getRequestDispatcher("/notificaall/updatenotificaall.jsp").forward(request,response);
 		}
 		break;
 		
@@ -95,7 +95,7 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		if(!(request.getParameter("type").equals("all"))) {
 			getServletContext().getRequestDispatcher("/EventServlet?type=none&mode=readevent&id="+id_event+"").forward(request, response);
 		}else {
-			getServletContext().getRequestDispatcher("/notifica/notificaallmanager").forward(request, response);
+			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager").forward(request, response);
 		}
 		
 		break;
@@ -111,7 +111,7 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		if(!(request.getParameter("type").equals("all"))) {
 			getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
 		}else {
-			getServletContext().getRequestDispatcher("/notifica/notificaallmanager").forward(request, response);
+			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager").forward(request, response);
 		}
 		
 break;
@@ -130,7 +130,7 @@ break;
 				getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
 			}
 		}else {
-			getServletContext().getRequestDispatcher("/notifica/notificaallmanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager.jsp").forward(request, response);
 		}
 		
 		break;
