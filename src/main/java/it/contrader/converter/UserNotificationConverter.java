@@ -9,13 +9,13 @@ import it.contrader.model.UserNotification;
 public class UserNotificationConverter implements Converter<UserNotification, UserNotificationDTO>  {
 	
 	public UserNotificationDTO toDTO(UserNotification userNotification) {
-		UserNotificationDTO userNotificationDTO = new UserNotificationDTO(userNotification.getId(), userNotification.getIdUser(), userNotification.getIdNotification());
+		UserNotificationDTO userNotificationDTO = new UserNotificationDTO(userNotification.getId(), userNotification.getNome(), userNotification.getNotifica_tempo(), userNotification.isNotificato());
 		return userNotificationDTO;
 		}
 	
 	
 	public UserNotification toEntity(UserNotificationDTO userNotificationDTO) {
-		UserNotification userNotification = new UserNotification(userNotificationDTO.getId(), userNotificationDTO.getIdUser(), userNotificationDTO.getIdNotification());
+		UserNotification userNotification = new UserNotification(userNotificationDTO.getId(), userNotificationDTO.getNome(), userNotificationDTO.getNotifica_tempo(), userNotificationDTO.isNotificato());
 		return userNotification;
 	}
 	

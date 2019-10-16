@@ -185,4 +185,10 @@ public class EventDAO implements DAO<Event> {
 		}
 		return false;
 	}
+
+	@Override
+	public List<Event> getAllByUser(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

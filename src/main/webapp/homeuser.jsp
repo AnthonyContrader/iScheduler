@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@include file="css/header.jsp"%>
-<%@ include file="/functions/navbarall.jsp" %>
+<%@ include file="/functions/navbar.jsp" %>
 
 <div class="main">
 <h1>Welcome ${user.getUsername()}</h1>

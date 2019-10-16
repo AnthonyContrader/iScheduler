@@ -150,5 +150,11 @@ public class UserDAO implements DAO<User> {
 		return false;
 	}
 
+	@Override
+	public List<User> getAllByUser(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

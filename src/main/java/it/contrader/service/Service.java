@@ -14,6 +14,8 @@ public interface Service<DTO> {
 	 */
 	public List<DTO> getAll();
 	
+	public List<DTO> getAllByUser(int id);
+	
 	public List<DTO> getAllById(int id);
 	
 	public DTO read(int id);

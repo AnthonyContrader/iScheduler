@@ -1,14 +1,20 @@
 package it.contrader.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import it.contrader.dto.EventDTO;
 import it.contrader.dto.NotificaDTO;
+import it.contrader.dto.UserDTO;
+import it.contrader.dto.UserNotificationDTO;
+import it.contrader.service.EventService;
 import it.contrader.service.NotificaService;
 import it.contrader.service.Service;
 
@@ -19,11 +25,29 @@ public NotificaServlet() {
 	
 }
 
-public void updateList(HttpServletRequest request) {
+public void updateListAll(HttpServletRequest request) {
 	Service<NotificaDTO> service = new NotificaService();
 	List<NotificaDTO> listDTO = service.getAll();
 	request.setAttribute("list", listDTO);
 	}
+
+public void updateList(HttpServletRequest request) {
+	Service<NotificaDTO> service = new NotificaService();
+	final HttpSession session =  request.getSession();
+	UserDTO user = (UserDTO) session.getAttribute("user");
+	List<NotificaDTO> listDTO = service.getAllByUser(user.getId());
+	int id;
+	Service<EventDTO> serviceEvent = new EventService();
+	EventDTO eventDTO;
+	List<UserNotificationDTO> listUser = new ArrayList<UserNotificationDTO>();
+	for(NotificaDTO n: listDTO) {
+		id = n.getId_event();
+		eventDTO = serviceEvent.read(id);
+		UserNotificationDTO userDTO = new UserNotificationDTO(n.getId(), eventDTO.getNome(), n.getNotifica_tempo(), n.getNotificato());
+		listUser.add(userDTO);
+	}
+	request.setAttribute("list", listUser);
+}
 
 
 public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,7 +58,10 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 	boolean ans;
 	
 	switch (mode.toUpperCase()) {
-	
+	case "NOTIFICALISTALL":
+		updateListAll(request);
+		getServletContext().getRequestDispatcher("/notifica/notificaallmanager.jsp").forward(request, response);
+		break;
 	case "NOTIFICALIST" :
 		updateList(request);
 		getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
@@ -52,14 +79,14 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 		break;
 		
 	case "INSERT" :
-		int id_event = Integer.parseInt(request.getParameter("id_event"));
+		int id_event = Integer.parseInt(request.getParameter("id"));
 		boolean notificato = Boolean.parseBoolean(request.getParameter("notificato"));
 		String notifica_tempo = request.getParameter("notifica_tempo").toString();
-		dto = new NotificaDTO();
+		dto = new NotificaDTO(id_event, notificato, notifica_tempo);
 		ans = service.insert(dto);
 		request.setAttribute("ans", ans);
 		updateList(request);
-		getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
 		break;
 	
 	case "UPDATE" :

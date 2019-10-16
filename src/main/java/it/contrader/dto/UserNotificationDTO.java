@@ -12,7 +12,9 @@ public class UserNotificationDTO {
 	 *Per la descrizione della classe far riferimento al Model "UserNotification".
 	 */
 	
-		private int id,idUser,idNotification;
+		private int id;
+		private String nome,notifica_tempo;
+		private boolean notificato;
 
 	
 		
@@ -20,42 +22,74 @@ public class UserNotificationDTO {
 			
 		}
 
-		public UserNotificationDTO (int idUser, int idNotification) {
-			this.idUser= idUser;
-			this.idNotification= idNotification;
-			
+
+
+		public UserNotificationDTO(int id, String nome, String notifica_tempo, boolean notificato) {
+			super();
+			this.id = id;
+			this.nome = nome;
+			this.notifica_tempo = notifica_tempo;
+			this.notificato = notificato;
 		}
 
-		public UserNotificationDTO (int id, int idUser, int idNotification) {
-			this.id = id;
-			this.idUser= idUser;
-			this.idNotification= idNotification;
-		}
+
 
 		public int getId() {
-			return this.id;
+			return id;
 		}
+
+
+
 		public void setId(int id) {
 			this.id = id;
 		}
 
-		public int getIdUser() {
-			return this.idUser;
+
+
+		public String getNome() {
+			return nome;
 		}
-		public void setIdUser(int idUser) {
-			this.idUser = idUser;
+
+
+
+		public void setNome(String nome) {
+			this.nome = nome;
 		}
-		public int getIdNotification() {
-			return this.idNotification;
+
+
+
+		public String getNotifica_tempo() {
+			return notifica_tempo;
 		}
-		public void setIdNotification(int idNotification) {
-			this.idNotification = idNotification;
+
+
+
+		public void setNotifica_tempo(String notifica_tempo) {
+			this.notifica_tempo = notifica_tempo;
 		}
+
+
+
+		public boolean isNotificato() {
+			return notificato;
+		}
+
+
+
+		public void setNotificato(boolean notificato) {
+			this.notificato = notificato;
+		}
+
+
 
 		@Override
 		public String toString() {
-			return  id + "\t"  + idUser +"\t" +   idNotification ;
+			return "UserNotificationDTO [id=" + id + ", nome=" + nome + ", notifica_tempo=" + notifica_tempo
+					+ ", notificato=" + notificato + "]";
 		}
+
+
+
 	}
 
 

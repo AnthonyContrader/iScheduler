@@ -4,8 +4,7 @@
 <html>
 <body>
 <div class="navbar">
-  <a href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
+  <a href="homeuser.jsp">Home</a>
   <a href="EventServlet?mode=eventlist">Events</a>
   <a href="NotificaServlet?mode=notificalist">Notifiche</a>
   

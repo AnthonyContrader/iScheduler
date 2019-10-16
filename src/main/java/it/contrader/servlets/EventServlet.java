@@ -136,7 +136,7 @@ public class EventServlet extends HttpServlet{
 			dto = new EventDTO(id, idUser, posizioneX, posizioneY, scadenza, nome, descrizione, categoria);
 			ans = service.update(dto);
 			updateList(request);
-			getServletContext().getRequestDispatcher("event/eventmanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);
 			break;
 		case "DELETE":
 			id = Integer.parseInt(request.getParameter("id"));

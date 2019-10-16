@@ -32,6 +32,10 @@ public abstract class AbstractService<Entity,DTO> implements Service<DTO> {
 		return converter.toDTOList(dao.getAllById(id));
 	}
 	@Override
+	public List<DTO> getAllByUser(int id){
+		return converter.toDTOList(dao.getAllByUser(id));
+	}
+	@Override
 	public DTO read(int id) {
 		// Ottiene un'entità e la restituisce convertendola in DTO
 		return converter.toDTO(dao.read(id));

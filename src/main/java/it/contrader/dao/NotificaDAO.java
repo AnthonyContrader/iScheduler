@@ -14,6 +14,7 @@ private final String QUERY_ALL = "select * from notifica";
 private final String QUERY_CREATE = "insert into notifica(id_event,notificato,notifica_tempo) values (?,?,?)";
 private final String QUERY_READ = "select * from notifica where id=?";
 private final String QUERY_READEVENT = "select * from notifica where id_event=?";
+private final String QUERY_JOIN = "select n.notificato, n.notifica_tempo, n.id_event from notifica as n inner join usernotification as u on u.idNotification = n.id where u.idUser = ?";
 private final String QUERY_UPDATE = "update notifica set id_event=?, notificato=?,notifica_tempo=? where id=? ";
 private final String QUERY_DELETE = "Delete from notifica where id=?";
 
@@ -40,6 +41,30 @@ public List<Notifica> getAll() {
 			e.printStackTrace();
 		}
 	return notificheList;
+}
+
+public List<Notifica> getAllByUser(int idUser){
+	List<Notifica> notificaList = new ArrayList<>();
+	Connection connection = ConnectionSingleton.getInstance();
+	try {
+		PreparedStatement prepareStatement = connection.prepareStatement(QUERY_JOIN);
+		prepareStatement.setInt(1, idUser);
+		
+		ResultSet resultSet = prepareStatement.executeQuery();
+		Notifica notifica;
+		while(resultSet.next()) {
+			int id_event = resultSet.getInt("id_event");
+			boolean notificato = resultSet.getBoolean("notificato");
+			String notifica_tempo = resultSet.getString("notifica_tempo");
+			notifica = new Notifica(id_event, notificato, notifica_tempo);
+			notificaList.add(notifica);
+			
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return notificaList;
 }
 
 public List<Notifica> getAllById(int id_event){
