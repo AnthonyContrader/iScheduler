@@ -122,7 +122,7 @@ break;
 		request.setAttribute("ans", ans);
 		updateList(request);
 		if(!(request.getParameter("type").equals("all"))) {
-			if(request.getParameter("dest").equals("receiver")) {
+			if(!(request.getParameter("dest").equals("receiver"))) {
 				getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
 			}
 			else {
