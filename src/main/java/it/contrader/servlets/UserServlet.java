@@ -32,6 +32,7 @@ public class UserServlet extends HttpServlet {
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service<UserDTO> service = new UserService();
 		String mode = request.getParameter("mode");
+		String type = request.getParameter("type");
 		UserDTO dto;
 		int id;
 		boolean ans;

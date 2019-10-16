@@ -69,6 +69,7 @@ public class EventServlet extends HttpServlet{
 		case "EVENTLISTALL":
 			updateListAll(request);
 			getServletContext().getRequestDispatcher("/eventall/eventallmanager.jsp").forward(request, response);
+			break;
 		case "EVENTLIST":
 			updateList(request);
 			getServletContext().getRequestDispatcher("/event/eventmanager.jsp").forward(request, response);

@@ -3,7 +3,7 @@
 <head>
 <link href="css/vittoriostyle.css" rel="stylesheet">
 
-<title>Login SAMPLE</title>
+<title>iScheduler Login</title>
 </head>
 <body>
 		<br>

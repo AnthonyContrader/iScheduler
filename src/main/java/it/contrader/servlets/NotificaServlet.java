@@ -96,7 +96,7 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 			getServletContext().getRequestDispatcher("/EventServlet?type=none&mode=readevent&id="+id_event+"").forward(request, response);
 		}else {
 			updateListAll(request);
-			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager").forward(request, response);
+			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager.jsp").forward(request, response);
 		}
 		
 		break;
@@ -113,7 +113,7 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
 			getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
 		}else {
 			updateListAll(request);
-			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager").forward(request, response);
+			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager.jsp").forward(request, response);
 		}
 		
 break;
