@@ -45,7 +45,7 @@
      	 	 <label for="deadline">Deadline</label>
     		</div>
 			<div class="col-75">
-			 <input type="text" id="scadenza" name="scadenza" value=<%=e.getScadenza()%>>
+			 <input type="date" id="scadenza" name="scadenza" value=<%=e.getScadenza()%>>
 			</div>
 		</div>
 		<div class="row">
