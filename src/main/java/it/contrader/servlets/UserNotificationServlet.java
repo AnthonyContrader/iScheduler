@@ -25,7 +25,7 @@ public class UserNotificationServlet extends HttpServlet {
 			uDTO.setIdNotifica(idNotifica);
 			uDTO.setIdUser(idUser);
 			uservice.insert(uDTO);
-			getServletContext().getRequestDispatcher("/homeuser.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/NotificaServlet?mode=send&id="+idNotifica+"").forward(request, response);
 			break;
 		}
 	}
