@@ -56,12 +56,45 @@ public class UserNotification {
 
 		private String nome,notifica_tempo;
 		private boolean notificato;
-		private int id;
+		private int id,idUser,idNotifica;
 
 	
 		
 		public UserNotification() {
 			
+		}
+
+
+		public UserNotification(int id, String nome, String notifica_tempo, boolean notificato,int idUser,int idNotifica) {
+			super();
+			this.id = id;
+			this.nome = nome;
+			this.notifica_tempo = notifica_tempo;
+			this.notificato = notificato;
+			this.idUser = idUser;
+			this.idNotifica = idNotifica;
+		}
+		
+		public int getIdUser() {
+			return idUser;
+		}
+
+
+
+		public void setIdUser(int idUser) {
+			this.idUser = idUser;
+		}
+
+
+
+		public int getIdNotifica() {
+			return idNotifica;
+		}
+
+
+
+		public void setIdNotifica(int idNotifica) {
+			this.idNotifica = idNotifica;
 		}
 
 

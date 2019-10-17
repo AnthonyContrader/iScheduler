@@ -10,7 +10,12 @@
 		<br>
 		<br>
 		<br>
-		<p style="text-align:center"><h1>LOGIN</h1></p>
+			<p style="text-align:center"><h1>LOGIN</h1></p>
+		<%
+			if(null!=request.getAttribute("error")){
+				out.println("<p style='text-align:center;'><h1 style='color:red'>errore login riprova.</h1></p>");
+			}
+		%>
 		<form class="login" action="LoginServlet" method="post">
 
 				<label for="user">Username: </label>

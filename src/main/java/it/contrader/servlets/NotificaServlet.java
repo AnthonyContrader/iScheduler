@@ -17,6 +17,8 @@ import it.contrader.dto.UserNotificationDTO;
 import it.contrader.service.EventService;
 import it.contrader.service.NotificaService;
 import it.contrader.service.Service;
+import it.contrader.service.UserNotificationService;
+import it.contrader.service.UserService;
 
 public class NotificaServlet extends HttpServlet{
 private static final long serialVersionUID = 1L;
@@ -129,13 +131,36 @@ break;
 				getServletContext().getRequestDispatcher("/EventServlet?mode=readevent&id="+id_event+"").forward(request, response);
 			}
 			else {
-				getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
+				id_event = Integer.parseInt(request.getParameter("id_e"));
+				getServletContext().getRequestDispatcher("/EventServlet?type=none&mode=readevent&id="+id_event+"").forward(request, response);
 			}
 		}else {
 			updateListAll(request);
 			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager.jsp").forward(request, response);
 		}
 		
+		break;
+	case "DELETEIT":
+		id = Integer.parseInt(request.getParameter("id"));
+		UserNotificationService unservice = new UserNotificationService();
+		ans = unservice.delete(id);
+		request.setAttribute("ans", ans);
+		if(!(request.getParameter("type").equals("all"))){
+			updateList(request);
+			getServletContext().getRequestDispatcher("/notifica/notificamanager.jsp").forward(request, response);
+		}else {
+			updateListAll(request);
+			getServletContext().getRequestDispatcher("/notificaall/notificaallmanager.jsp").forward(request, response);
+		}
+		
+		break;
+	case "SEND":
+		id = Integer.parseInt(request.getParameter("id"));
+		UserService userService = new UserService();
+		List<UserDTO> userList = userService.getAll();
+		request.setAttribute("list", userList);
+		request.setAttribute("id",id);
+		getServletContext().getRequestDispatcher("/event/sendnotificaevent.jsp").forward(request, response);
 		break;
 	}
 	

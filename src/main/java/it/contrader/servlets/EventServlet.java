@@ -18,6 +18,8 @@ import it.contrader.dto.UserDTO;
 import it.contrader.service.EventService;
 import it.contrader.service.NotificaService;
 import it.contrader.service.Service;
+import it.contrader.service.UserNotificationService;
+import it.contrader.service.UserService;
 
 public class EventServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;

@@ -16,6 +16,8 @@ public class UserNotificationConverter implements Converter<UserNotification, Us
 	
 	public UserNotification toEntity(UserNotificationDTO userNotificationDTO) {
 		UserNotification userNotification = new UserNotification(userNotificationDTO.getId(), userNotificationDTO.getNome(), userNotificationDTO.getNotifica_tempo(), userNotificationDTO.isNotificato());
+		userNotification.setIdUser(userNotificationDTO.getIdUser());
+		userNotification.setIdNotifica(userNotificationDTO.getIdNotifica());
 		return userNotification;
 	}
 	

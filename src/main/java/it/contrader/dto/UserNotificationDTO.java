@@ -15,15 +15,46 @@ public class UserNotificationDTO {
 		private int id;
 		private String nome,notifica_tempo;
 		private boolean notificato;
+		private int idUser,idNotifica;
 
 	
 		
+		public int getIdUser() {
+			return idUser;
+		}
+
+
+		public void setIdUser(int idUser) {
+			this.idUser = idUser;
+		}
+
+
+		public int getIdNotifica() {
+			return idNotifica;
+		}
+
+
+		public void setIdNotifica(int idNotifica) {
+			this.idNotifica = idNotifica;
+		}
+
+
 		public UserNotificationDTO() {
 			
 		}
 
 
-
+		public UserNotificationDTO(int id, String nome, String notifica_tempo, boolean notificato,int idUser, int idNotifica) {
+			super();
+			this.id = id;
+			this.nome = nome;
+			this.notifica_tempo = notifica_tempo;
+			this.notificato = notificato;
+			this.idUser = idUser;
+			this.idNotifica = idNotifica;
+		}
+		
+		
 		public UserNotificationDTO(int id, String nome, String notifica_tempo, boolean notificato) {
 			super();
 			this.id = id;

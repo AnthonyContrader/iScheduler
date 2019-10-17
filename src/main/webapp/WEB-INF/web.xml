@@ -44,6 +44,18 @@
 		<servlet-name>UserServlet</servlet-name>
 		<url-pattern>/UserServlet</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<description></description>
+		<display-name>UserNotificationServlet</display-name>
+		<servlet-name>UserNotificationServlet</servlet-name>
+		<servlet-class>it.contrader.servlets.UserNotificationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserNotificationServlet</servlet-name>
+		<url-pattern>/UserNotificationServlet</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<description></description>

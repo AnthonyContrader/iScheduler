@@ -24,6 +24,7 @@
 			<th>Descrizione</th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 		<%
 			int id=Integer.parseInt(request.getParameter("id"));
@@ -34,6 +35,7 @@
 			<td><a><%=n.getNotifica_tempo() %></a></td>
 			<td><a href=NotificaServlet?type=none&mode=read&update=true&id=<%=n.getId()%>>Edit</a></td>
 			<td><a href="NotificaServlet?dest=receiver&type=none&mode=delete&id_e=<%=n.getId_event()%>&id=<%=n.getId()%>">Delete</a></td>
+			<td><a href=NotificaServlet?mode=send&id=<%=n.getId()%>>Send</a></td>
 		</tr>
 		<%} %>
 	</table>
