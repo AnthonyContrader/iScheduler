@@ -28,8 +28,9 @@
 						</tr>
 						<%for(EventDTO e : list){ %>
 						<tr>
-							<td><a href=EventServelet?type=all&mode=read&id=<%=e.getId()%>>
-							<%=e.getNome()%></a></td>
+							<td><a href=EventServlet?type=all&mode=read&id=<%=e.getId()%>>
+							 <%=e.getNome()%>
+							 </a></td>
 							<td><%=e.getCategoria()%></td>
 							<td><%=e.getDescrizione()%></td>
 							<td><%=e.getPosizioneX() %></td>
