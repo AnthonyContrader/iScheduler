@@ -12,6 +12,8 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <%@ include file="../functions/navbarall.jsp" %>
+<%@	include file="../functions/Categories.html" %>
+
 <div class="main">
 	
 	<% List<EventDTO> list = (List<EventDTO>) request.getAttribute("list"); %>
@@ -25,6 +27,8 @@
 						<th>Posizione X</th>
 						<th>Posizione Y</th>
 						<th>Data</th>
+						<th></th>
+						<th></th>
 						</tr>
 						<%for(EventDTO e : list){ %>
 						<tr>
@@ -58,7 +62,7 @@
 			<label for="categoria">CATEGORIA</label>
 		</div>
 		<div class="col-75">
-			<input type="text" id="categoria" name="categoria" placeholder="Inserisci categoria evento">
+			<input list="category" name="categoria" placeholder="Inserisci categoria">
 		</div>
 	</div>
 	

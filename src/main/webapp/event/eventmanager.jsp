@@ -12,6 +12,8 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <%@ include file="../functions/navbar.jsp" %>
+<%@	include file="../functions/Categories.html" %>
+
 <div class="main">
 
 	<%
@@ -70,7 +72,7 @@
 		 <label for="categoria">Category</label>
 		</div>
 		<div class="col-75">
-		 <input type="text" id="categoria" name="categoria" placeholder="Inserisci categoria">
+		 <input list="category" name="categoria" placeholder="Inserisci categoria">
 		</div>
 	</div>
 	<div class="row">

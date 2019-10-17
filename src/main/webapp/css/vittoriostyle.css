@@ -12,6 +12,7 @@ div.text{
 }
 
 .header {
+	background-image:url("header.png");
 	text-align: center;
 	font-size: 800%;
 	font-family: sans-serif;

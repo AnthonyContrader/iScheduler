@@ -11,6 +11,7 @@
 <body>
 <%@ include file="../css/header.jsp" %>
 <%@ include file="../functions/navbar.jsp" %>
+<%@	include file="../functions/Categories.html" %>
 <div class="main">
 	<% EventDTO e = (EventDTO) request.getAttribute("dto"); %>
 	
@@ -28,7 +29,7 @@
      	 	 <label for="category">Category</label>
     		</div>
 			<div class="col-75">
-			 <input type="text" id="categoria" name="categoria" value=<%=e.getCategoria()%>>
+			 <input list="category" name="categoria" value=<%=e.getCategoria()%>>
 			</div>
 		</div>
 		<div class="row">
