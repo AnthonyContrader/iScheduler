@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+import it.contrader.model.User;
+
 /**
  * 
  * @author Vittorio
@@ -72,5 +74,33 @@ public class UserDTO {
 	@Override
 	public String toString() {
 		return  id + "\t"  + username +"\t\t" +   password + "\t\t" + usertype;
+	}
+	
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserDTO other = (UserDTO) obj;
+		if (id != other.id)
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		if (usertype == null) {
+			if (other.usertype != null)
+				return false;
+		} else if (!usertype.equals(other.usertype))
+			return false;
+		return true;
 	}
 }

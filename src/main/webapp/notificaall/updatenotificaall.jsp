@@ -24,7 +24,11 @@
 			 <label for="notificato">Notifica inviata</label>
 			</div>
 			<div class="col-75">
-			 <input type="text" id="notificato" name="notificato" value=<%=n.getNotificato()%>>
+			<select id="tipo" name="notificato">
+				<option value="true"> Sì</option>
+				<option value="false"> No</option>
+				</select>
+			
 			</div>
 		</div>
 		<div class="row">

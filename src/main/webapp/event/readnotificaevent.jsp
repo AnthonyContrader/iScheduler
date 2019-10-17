@@ -46,7 +46,10 @@
 			<label for="notificato">Notifica Inviata</label>
 		</div>
 		<div class="col-75">
-			<input type="text" id="notificato" name="notificato" placeholder="Inserisci notificato">
+			<select id="tipo" name="notificato">
+			<option value="true">Sì</option>
+			<option value="false">No</option>
+			</select>
 		</div>
 	</div>
 	<div class="row">
