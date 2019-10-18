@@ -8,9 +8,7 @@
 <body>
 		<br>
 		<br>
-		<br>
-		<br>
-			<p style="text-align:left"><h1>LOGIN</h1></p>
+			<img src="https://i.ibb.co/x5dkjms/ischedulerlogin.png" alt="ischedulerlogin" class="center" >
 		<%
 			if(null!=request.getAttribute("error")){
 				out.println("<p style='text-align:center;'><h1 style='color:red'>errore login riprova.</h1></p>");

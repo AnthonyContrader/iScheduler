@@ -11,12 +11,19 @@ div.text{
 	margin-bottom: 3%;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
 .header {
 	background-image:url("header.png");
 	text-align: center;
 	font-size: 800%;
 	font-family: sans-serif;
-	color: #00a990;
+	color: #0020a9;
 }
 
 .main {
@@ -31,7 +38,7 @@ div.text{
 .footer {
 	text-align: center;
 	font-size: 70%;
-	background-color: #00a990;
+	background-color: #0020a9;
 	color: #ffffff;
 	width: 100%;
 	border-radius: 7px;
@@ -67,12 +74,11 @@ h2 {
 	
 }
 .login{
-	position:fixed;
-	heigth:50%;
+	heigth:1%;
 	width:20%;
-	margin-left:35.6%;
-	margin-right:44.4%;
-	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:1%;
 	margin-bottom:auto;
 	z-index:1;
 }
@@ -139,7 +145,7 @@ tr:nth-child(even) {
 }
 
 th {
-	background-color: #00a990;
+	background-color: #0020a9;
 	color: #ffffff;
 	
 }
@@ -191,7 +197,7 @@ input {
 }
 
 input:hover {
-  background-color:  #00ccad;
+  background-color:  #006cc1;
 }
 
 
@@ -240,7 +246,7 @@ label {
 button {
   -webkit-transition-duration: 0.1s; /* Safari */
   transition-duration: 0.1s;
-  background-color:  #00a990;
+  background-color:  #0057a9;
   border: none;
   color: white;
   padding: 3% 3%;
@@ -285,7 +291,7 @@ button:hover {
 
 /*Navigation bar*/
 div.navbar {
-	background: #00a990;
+	background: #0057a9;
 	overflow: hidden;
 	position: sticky;
 	width: 100%;
@@ -305,16 +311,16 @@ div.navbar a {
 	text-decoration: none;
 	font-size: 17px;
 	border-radius: 7px;
-	background: #00a990;
+	background: #0057a9;
 }
 
 div.navbar a:hover {
-	background: #00ccad;
+	background: #006cc1;
 	color: #ffffff;
 }
 
 div.navbar a.active {
-	background: #00ccad;
+	background: #006cc1;
 	color: #ffffff;
 }
 
