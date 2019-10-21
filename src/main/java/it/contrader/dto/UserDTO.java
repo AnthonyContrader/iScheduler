@@ -1,5 +1,7 @@
 package it.contrader.dto;
 
+import java.util.List;
+
 import it.contrader.model.User.Usertype;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +20,9 @@ public class UserDTO {
 	private String password;
 
 	private Usertype usertype;
+	
+	private List<EventDTO> events;
+	
+	private List<UserNotificationDTO> userNotifications;
 
 }
