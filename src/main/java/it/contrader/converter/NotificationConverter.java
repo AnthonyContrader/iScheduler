@@ -9,11 +9,16 @@ import it.contrader.model.Notification;
 @Component
 public class NotificationConverter extends AbstractConverter<Notification, NotificationDTO> {
 
+	private EventConverter eventConverter = new EventConverter();
+	private UserNotificationConverter userNotificationConverter = new UserNotificationConverter();
+	
 	@Override
 	public Notification toEntity(NotificationDTO notificationDTO) {
 		Notification notification = null;
 		if (notificationDTO != null) {
-			notification = new Notification(notificationDTO.getId(), notificationDTO.getDescription(), notificationDTO.getIdEvent());
+			notification = new Notification(notificationDTO.getId(), notificationDTO.getDescription(),
+						   					eventConverter.toEntity(notificationDTO.getEventDTO()),
+						   					userNotificationConverter.toEntity(notificationDTO.getUserNotificationsDTO()));
 		}
 		return notification;
 	}
@@ -22,8 +27,9 @@ public class NotificationConverter extends AbstractConverter<Notification, Notif
 	public NotificationDTO toDTO(Notification notification) {
 		NotificationDTO notificationDTO = null;
 		if (notification != null) {
-			notificationDTO = new NotificationDTO(notification.getId(), notification.getDescription(), notification.getIdEvent());
-
+			notificationDTO = new NotificationDTO(notification.getId(), notification.getDescription(),
+												  eventConverter.toDTO(notification.getEvent()),
+												  userNotificationConverter.toDTO(notification.getUserNotifications()));
 		}
 		return notificationDTO;
 	}
