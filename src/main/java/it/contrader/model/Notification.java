@@ -1,5 +1,7 @@
 package it.contrader.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,22 +21,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-
+@Table(name = "notification")
 public class Notification {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(unique = true)
+	
+	@NotNull
+	@Column
 	private String description;
-
-	private int idEvent;
 
 	// relationship between Notification - Event
 
 	@ManyToOne
-	@JoinColumn(name = "iduser", referencedColumnName = "id")
+	@JoinColumn(name = "idEvent", referencedColumnName = "id")
 	private Event event;
+	
+	@OneToMany(mappedBy = "notification")
+	private List<UserNotification> userNotifications;
 
 }

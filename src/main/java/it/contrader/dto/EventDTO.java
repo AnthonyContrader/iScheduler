@@ -1,15 +1,19 @@
 package it.contrader.dto;
 
 import java.time.LocalDateTime;
-
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/*
+ * 
+ * @Author Federico.
+ * 
+ * 
+*/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class EventDTO {
 	
 	private Long id;
@@ -21,5 +25,6 @@ public class EventDTO {
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private UserDTO userDTO;
+	private List<NotificationDTO> notificationsDTO;
 
 }

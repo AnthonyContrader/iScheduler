@@ -15,6 +15,7 @@ public class UserConverter extends AbstractConverter<User, UserDTO> {
 		User user = null;
 		if (userDTO != null) {
 			EventConverter eventConverter = new EventConverter();
+			UserNotificationConverter userNotificationConverter = new UserNotificationConverter();
 			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getUsertype(),eventConverter.toEntityList(userDTO.getEvents()), userNotificationConverter.toEntityList(userDTO.getUserNotifications()));
 		}
 		return user;

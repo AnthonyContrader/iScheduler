@@ -44,8 +44,6 @@ public class UserNotification {
 	
 	//This is useful to declare which is the primary key for the tab.
 	@Id
-	@Column(name = "id")
-	//GeneratedValue specified the type of generation for the primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
@@ -55,7 +53,7 @@ public class UserNotification {
 	User user;
 	
 	@ManyToOne
-	@JoinColumn(name = "idNotification", referencedColumnName = "Name")
+	@JoinColumn(name = "idNotification", referencedColumnName = "id")
 	Notification notification;
 	
 
