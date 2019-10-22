@@ -13,12 +13,8 @@
 
 </head>
 <body>
-<%@ include file="./css/header.jsp" %>
-<div class="navbar">
-  <a href="/homeadmin.jsp">Home</a>
-  <a class="active" href="/user/getall">Users</a>
-  <a href="/user/logout" id="logout">Logout</a>
-</div>
+	<%@ include file="../css/header.jsp"%>
+	<%@include file="../functions/navbar.jsp" %>
 <br>
 <div class="main">
 
@@ -61,6 +57,6 @@
 	
 </div>
 <br>
-<%@ include file="./css/footer.jsp" %>	
+<%@ include file="../css/footer.jsp" %>	
 </body>
 </html>

@@ -1,5 +1,6 @@
 package it.contrader.converter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import it.contrader.dto.UserDTO;
@@ -9,9 +10,11 @@ import java.util.List;
 
 @Component
 public class UserConverter extends AbstractConverter<User, UserDTO> {
-
-	private EventConverter eventConverter = new EventConverter();
-	private UserNotificationConverter userNotificationConverter = new UserNotificationConverter();
+	
+	@Autowired
+	private EventConverter eventConverter;
+	@Autowired
+	private UserNotificationConverter userNotificationConverter;
 	
 	@Override
 	public User toEntity(UserDTO userDTO) {

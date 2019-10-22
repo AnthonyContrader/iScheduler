@@ -11,6 +11,4 @@ import it.contrader.model.Notification;
 @Transactional
 public interface NotificationRepository extends CrudRepository<Notification, Long> {
 
-	Notification findByDescriptionAndIdEvent(String description, int idEvent);
-
 }
