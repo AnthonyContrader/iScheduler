@@ -1,6 +1,5 @@
 package it.contrader.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,24 +36,26 @@ import lombok.NoArgsConstructor;
 
 
 
-//Denotes the class ad an entity class
+//Denotes the class ad an entity class, it is usefull to map the entityt into the Database
 @Entity
 @Table(name="usernotification")
 public class UserNotification {
 	
 	//This is useful to declare which is the primary key for the tab.
 	@Id
+	//The GeneratedValue annotation is useful to define the generation method of the primary key. IDENTITY is like "autoincrement"
+	//There are even other two strategies "SEQUENCE" and "TABLE"
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	
 	@ManyToOne
 	@JoinColumn(name = "idUser", referencedColumnName ="id")
-	User user;
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "idNotification", referencedColumnName = "id")
-	Notification notification;
+	private Notification notification;
 	
 
 }

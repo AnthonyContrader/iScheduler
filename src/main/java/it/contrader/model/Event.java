@@ -22,6 +22,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
+
+
 @Table(name = "event")
 public class Event {
 	
