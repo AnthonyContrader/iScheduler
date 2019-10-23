@@ -33,7 +33,7 @@ public class UserController {
 			return "homeadmin";
 
 		case USER:
-			return "index";
+			return "homeuser";
 
 		default:
 			return "index";
