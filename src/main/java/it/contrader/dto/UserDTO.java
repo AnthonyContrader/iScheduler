@@ -25,6 +25,6 @@ public class UserDTO {
 	
 	private List<Event> events;
 	
-	private List<UserNotification> userNotifications;
+	/*private List<UserNotification> userNotifications;*/
 
 }

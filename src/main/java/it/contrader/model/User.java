@@ -48,8 +48,8 @@ public class User {
 	private List<Event> events;
 	
 	//Relazione tra utenti e le notifiche ricevute.
-	@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
-	private List<UserNotification> userNotifications;
+	/*@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+	private List<UserNotification> userNotifications;*/
 	
 
 }

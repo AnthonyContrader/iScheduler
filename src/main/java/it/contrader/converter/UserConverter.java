@@ -26,9 +26,6 @@ public class UserConverter extends AbstractConverter<User, UserDTO> {
 				user.setEvents(userDTO.getEvents());
 			}
 			user.setUsername(userDTO.getUsername());
-			if(userDTO.getUserNotifications()!=null) {
-				user.setUserNotifications(userDTO.getUserNotifications());
-			}
 			user.setPassword(userDTO.getPassword());
 			user.setUsertype(userDTO.getUsertype());
 		}
@@ -45,9 +42,6 @@ public class UserConverter extends AbstractConverter<User, UserDTO> {
 				userDTO.setEvents(user.getEvents());
 			}
 			userDTO.setUsername(user.getUsername());
-			if(user.getUserNotifications()!=null) {
-				userDTO.setUserNotifications(user.getUserNotifications());
-			}
 			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getUsertype());
 		}	
