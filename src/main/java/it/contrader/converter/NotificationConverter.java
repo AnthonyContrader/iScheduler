@@ -12,16 +12,13 @@ public class NotificationConverter extends AbstractConverter<Notification, Notif
 
 	@Autowired
 	private EventConverter eventConverter;
-	@Autowired
-	private UserNotificationConverter userNotificationConverter;
 	
 	@Override
 	public Notification toEntity(NotificationDTO notificationDTO) {
 		Notification notification = null;
 		if (notificationDTO != null) {
 			notification = new Notification(notificationDTO.getId(), notificationDTO.getDescription(),
-						   					eventConverter.toEntity(notificationDTO.getEventDTO()),
-						   					notificationDTO.getUserNotificationsDTO());
+						   					eventConverter.toEntity(notificationDTO.getEventDTO()));
 		}
 		return notification;
 	}
@@ -31,8 +28,7 @@ public class NotificationConverter extends AbstractConverter<Notification, Notif
 		NotificationDTO notificationDTO = null;
 		if (notification != null) {
 			notificationDTO = new NotificationDTO(notification.getId(), notification.getDescription(),
-												  eventConverter.toDTO(notification.getEvent()),
-												  notification.getUserNotifications());
+												  eventConverter.toDTO(notification.getEvent()));
 		}
 		return notificationDTO;
 	}

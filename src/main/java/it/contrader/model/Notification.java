@@ -39,7 +39,7 @@ public class Notification {
 	@JoinColumn(name = "idEvent", referencedColumnName = "id")
 	private Event event;
 	
-	@OneToMany(mappedBy = "notification")
-	private List<UserNotification> userNotifications;
+	/*@OneToMany(mappedBy = "notification")
+	private List<UserNotification> userNotifications;*/
 
 }
