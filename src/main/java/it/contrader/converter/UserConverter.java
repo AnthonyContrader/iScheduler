@@ -12,17 +12,25 @@ import java.util.List;
 public class UserConverter extends AbstractConverter<User, UserDTO> {
 	
 	@Autowired
-	private EventConverter eventConverter;
+	EventConverter eventConverter;
 	@Autowired
-	private UserNotificationConverter userNotificationConverter;
+	UserNotificationConverter userNotificationConverter;
 	
 	@Override
 	public User toEntity(UserDTO userDTO) {
 		User user = null;
 		if (userDTO != null) {
-			user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getUsertype(),
-							eventConverter.toEntityList(userDTO.getEvents()),
-							userNotificationConverter.toEntityList(userDTO.getUserNotifications()));
+			user = new User();
+			user.setId(userDTO.getId());
+			if(userDTO.getEvents()!=null) {
+				user.setEvents(userDTO.getEvents());
+			}
+			user.setUsername(userDTO.getUsername());
+			if(userDTO.getUserNotifications()!=null) {
+				user.setUserNotifications(userDTO.getUserNotifications());
+			}
+			user.setPassword(userDTO.getPassword());
+			user.setUsertype(userDTO.getUsertype());
 		}
 		return user;
 	}
@@ -31,10 +39,35 @@ public class UserConverter extends AbstractConverter<User, UserDTO> {
 	public UserDTO toDTO(User user) {
 		UserDTO userDTO = null;
 		if (user != null) {
-			userDTO = new UserDTO(user.getId(), user.getUsername(), user.getPassword(), user.getUsertype(),
-								  eventConverter.toDTOList(user.getEvents()),
-								  userNotificationConverter.toDTOList(user.getUserNotifications()));
-		}
+			userDTO = new UserDTO();
+			userDTO.setId(user.getId());
+			if(user.getEvents()!=null) {
+				userDTO.setEvents(user.getEvents());
+			}
+			userDTO.setUsername(user.getUsername());
+			if(user.getUserNotifications()!=null) {
+				userDTO.setUserNotifications(user.getUserNotifications());
+			}
+			userDTO.setPassword(user.getPassword());
+			userDTO.setUsertype(user.getUsertype());
+		}	
 		return userDTO;
 	}
 }
+
+
+/*public class UserConverter{
+	public UserDTO toDTO(User user) {
+		UserDTO userDTO = null;
+		if(user != null) {
+			userDTO = new UserDTO();
+			userDTO.setId(user.getId());
+			userDTO.setPassword(user.getPassword());
+			userDTO.setUsername(user.getUsername());
+			userDTO.setUsertype(user.getUsertype());
+			userDTO.setEvents(ConverterEvent);
+		}
+	}
+	
+	
+}*/

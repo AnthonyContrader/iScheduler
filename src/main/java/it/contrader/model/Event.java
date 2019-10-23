@@ -3,6 +3,7 @@ package it.contrader.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +23,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-
-
 @Table(name = "event")
 public class Event {
 	
@@ -59,11 +58,11 @@ public class Event {
 	@Column(name ="endDate")
 	private LocalDateTime endDate;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name ="idUser", referencedColumnName ="id")
 	private User user;
 	
-	@OneToMany(mappedBy="event")
+	@OneToMany(mappedBy="event", cascade = CascadeType.MERGE)
 	private List<Notification> notifications;
 	
 

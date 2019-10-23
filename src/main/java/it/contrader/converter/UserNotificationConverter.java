@@ -1,6 +1,5 @@
 package it.contrader.converter;
 
-import javax.ws.rs.BeanParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

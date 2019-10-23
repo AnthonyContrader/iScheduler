@@ -2,6 +2,8 @@ package it.contrader.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import it.contrader.model.Notification;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,6 @@ public class EventDTO {
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private UserDTO userDTO;
-	private List<NotificationDTO> notificationsDTO;
+	private List<Notification> notificationsDTO;
 
 }

@@ -2,7 +2,9 @@ package it.contrader.dto;
 
 import java.util.List;
 
+import it.contrader.model.Event;
 import it.contrader.model.User.Usertype;
+import it.contrader.model.UserNotification;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +23,8 @@ public class UserDTO {
 
 	private Usertype usertype;
 	
-	private List<EventDTO> events;
+	private List<Event> events;
 	
-	private List<UserNotificationDTO> userNotifications;
+	private List<UserNotification> userNotifications;
 
 }

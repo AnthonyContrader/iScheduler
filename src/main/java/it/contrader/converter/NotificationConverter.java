@@ -21,7 +21,7 @@ public class NotificationConverter extends AbstractConverter<Notification, Notif
 		if (notificationDTO != null) {
 			notification = new Notification(notificationDTO.getId(), notificationDTO.getDescription(),
 						   					eventConverter.toEntity(notificationDTO.getEventDTO()),
-						   					userNotificationConverter.toEntityList(notificationDTO.getUserNotificationsDTO()));
+						   					notificationDTO.getUserNotificationsDTO());
 		}
 		return notification;
 	}
@@ -32,7 +32,7 @@ public class NotificationConverter extends AbstractConverter<Notification, Notif
 		if (notification != null) {
 			notificationDTO = new NotificationDTO(notification.getId(), notification.getDescription(),
 												  eventConverter.toDTO(notification.getEvent()),
-												  userNotificationConverter.toDTOList(notification.getUserNotifications()));
+												  notification.getUserNotifications());
 		}
 		return notificationDTO;
 	}

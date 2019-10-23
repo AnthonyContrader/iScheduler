@@ -2,6 +2,7 @@ package it.contrader.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,10 +43,12 @@ public class User {
 	@Column(name = "usertype")
 	private Usertype usertype;
 	
-	@OneToMany(mappedBy = "user")
+	//Relazione tra utente e i suoi eventi
+	@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
 	private List<Event> events;
 	
-	@OneToMany(mappedBy = "user")
+	//Relazione tra utenti e le notifiche ricevute.
+	@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
 	private List<UserNotification> userNotifications;
 	
 

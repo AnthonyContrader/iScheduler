@@ -20,6 +20,6 @@ public class NotificationDTO {
 
 	private EventDTO eventDTO;
 	
-	private List<UserNotificationDTO> userNotificationsDTO;
+	private List<UserNotification> userNotificationsDTO;
 
 }
