@@ -43,12 +43,8 @@ public class Event {
 	private String category;
 	
 	@NotNull
-	@Column(name ="xPosition")
-	private float xPosition;
-	
-	@NotNull
-	@Column(name ="yPosition")
-	private float yPosition;
+	@Column(name = "arguments")
+	private String arguments;
 	
 	@NotNull
 	@Column(name ="startDate")

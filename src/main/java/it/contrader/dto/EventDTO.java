@@ -22,8 +22,7 @@ public class EventDTO {
 	private String name;
 	private String description;
 	private String category;
-	private float xPosition;
-	private float yPosition;
+	private String arguments;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
 	private UserDTO userDTO;
