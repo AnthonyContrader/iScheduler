@@ -1,5 +1,5 @@
 <%@page import="java.time.format.DateTimeFormatter"%>
-<%@ page import="it.contrader.dto.EventDTO" import="java.util.*" import="java.time.*"%>
+<%@ page import="it.contrader.dto.EventDTO" import="it.contrader.dto.UserDTO" import="java.util.*" import="java.time.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,7 +16,8 @@
 	<%@	include file="../functions/Categories.html" %>
 	<div class="main">
 		<% 
-		List<EventDTO> list = (List<EventDTO>) request.getSession().getAttribute("list");
+		List<EventDTO> eventList = (List<EventDTO>) request.getSession().getAttribute("eventlist");
+		List<UserDTO> userList = (List<UserDTO>) request.getSession().getAttribute("userlist");
 		%>
 		
 <br>
@@ -26,15 +27,15 @@
 			<th>Name</th>
 			<th>Description</th>
 			<th>Category</th>
-			<th>Position</th>
 			<th>StartDate</th>
 			<th>EndDate</th>
+			<th>Arguments</th>
 			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
 		<%
-			for(EventDTO e : list){	
+			for(EventDTO e : eventList){	
 		%>
 		<tr>
 			<td><a href=/event/read?id=<%=e.getId()%>>
@@ -42,13 +43,14 @@
 			</a></td>
 			<td><%=e.getDescription() %></td>
 			<td><%=e.getCategory() %></td>
-			<td><%=e.getXPosition()+","+e.getYPosition() %></td>
 			<td><%=e.getStartDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
 			<td><%=e.getEndDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
+			<td><%=e.getArguments() %></td>
 			<td><a href=#>Edit</a></td>
 			<td><a href=#>Delete</a></td>
 			<td><a href=#>View Not.</a></td>
 		</tr>
+		
 		
 		<% } %>
 	</table>
@@ -79,18 +81,10 @@
 	</div>
 	<div class="row">
 		<div class="col-25">
-		 <label for="xPosition">Position X</label>
+		 <label for="arguments">Arguments</label>
 		</div>
 		<div class="col-75">
-		 <input type="text" id="xPosition" name="xPosition" placeholder="X coordinate">
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-25">
-		 <label for="posizioneY">Position Y</label>
-		</div>
-		<div class="col-75">
-		 <input type="text" id="yPosition" name="yPosition" placeholder="Y coordinate">
+		 <input type="text" id="arguments" name="arguments">
 		</div>
 	</div>
 	<div class="row">
@@ -109,6 +103,23 @@
 		 <input type="datetime-local" id="endDate" name="endDate">
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-25">
+			<label for="userid">User</label>
+		</div>
+		<div class="col-75">
+			<select id="userid" name="userid">
+			<%
+			for(UserDTO u: userList){ 
+			%>
+			<option value=<%=u.getId()%>><%=u.getUsername()%></option>
+			<%	
+			}
+			%>
+			</select>
+		</div>
+	</div>
+	
 	<button type="submit">Insert</button>
 </form>
 	

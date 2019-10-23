@@ -2,7 +2,6 @@
 package it.contrader.controller;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,15 +20,17 @@ import it.contrader.service.*;
 public class EventController {
 
 		@Autowired
-		private EventService service;
-		
+		private EventService eventService;
+		@Autowired
+		private UserService userService;
+		/*
 		@GetMapping("/getallbyid")
 		public String getAllByUser(HttpServletRequest request) {
 			setAllByUser(request);
 			return "event/events";
-		}
+		} */
 		
-		@PostMapping("/insert")
+		/*@PostMapping("/insert")
 		public String insert(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("description") String description,
 						  	@RequestParam("category") String category, @RequestParam("xPosition") String xPosition, @RequestParam("yPosition") String yPosition,
 						  	@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) {
@@ -38,38 +39,34 @@ public class EventController {
 			setAllByUser(request);
 			return "event/events";
 			
-		}
-
-		
-		private void setAll(HttpServletRequest request) {
-			request.getSession().setAttribute("list", service.getAll());
-		}
+		}*/
 
 
 		@GetMapping("/getall")
 		public String getAll(HttpServletRequest request) {
-			setAll(request);
-			return "events";
+			setAllEvent(request);
+			setAllUser(request);
+			return "event/events";
 		}
 
 		@GetMapping("/delete")
 		public String delete(HttpServletRequest request, @RequestParam("id") Long id) {
-			service.delete(id);
-			setAll(request);
-			return "events";
+			eventService.delete(id);
+			setAllEvent(request);
+			return "event/events";
 		}
 
 		@GetMapping("/preupdate")
 		public String preupdate(HttpServletRequest request, @RequestParam("id") Long id) {
-			request.getSession().setAttribute("dto", service.read(id));
-			return "updateevent";
+			request.getSession().setAttribute("dto", eventService.read(id));
+			return "event/updateevent";
 		}
 
 		@PostMapping("/update")
 		public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
 				@RequestParam("category") String category, @RequestParam("description") String description,
-				@RequestParam("xPosition") String xPosition, @RequestParam("yPosition") String yPosition,
-				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) {
+				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,
+				@RequestParam("arguments") String arguments, @RequestParam("userDTO") UserDTO userDTO) {
 			
 			EventDTO dto = new EventDTO();
 			
@@ -77,38 +74,36 @@ public class EventController {
 			dto.setName(name);
 			dto.setCategory(category);
 			dto.setDescription(description);
-			dto.setXPosition(Float.parseFloat(xPosition));
-			dto.setYPosition(Float.parseFloat(yPosition));
 			dto.setStartDate(LocalDateTime.parse(startDate));
 			dto.setEndDate(LocalDateTime.parse(endDate));
-			service.update(dto);
-			setAll(request);
-			return "events";
+			eventService.update(dto);
+			setAllEvent(request);
+			return "event/events";
 			}
 			
-			@PostMapping("/insertall")
+			@PostMapping("/insert")
 			public String insert(HttpServletRequest request, @RequestParam("name") String name,
 				@RequestParam("category") String category, @RequestParam("description") String description,
-				@RequestParam("xPosition") String xPosition, @RequestParam("yPosition") String yPosition,
-				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate) {
+				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,
+				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId) {
 			
 				EventDTO dto=new EventDTO();
 				dto.setName(name);
 				dto.setCategory(category);
 				dto.setDescription(description);
-				dto.setXPosition(Float.parseFloat(xPosition));
-				dto.setYPosition(Float.parseFloat(yPosition));
 				dto.setStartDate(LocalDateTime.parse(startDate));
 				dto.setEndDate(LocalDateTime.parse(endDate));
-				service.insert(dto);
-				setAll(request);
-				return "events";
+				dto.setArguments(arguments);
+				dto.setUserDTO(userService.read(Long.parseLong(userId)));
+				eventService.insert(dto);
+				setAllEvent(request);
+				return "event/events";
 			}
 			
 			@GetMapping("/read")
 			public String read (HttpServletRequest request, @RequestParam("id") Long id) {
-				request.getSession().setAttribute("dto", service.read(id));
-				return "readevent";
+				request.getSession().setAttribute("dto", eventService.read(id));
+				return "event/readevent";
 			}
 			
 			@GetMapping("/logout")
@@ -120,7 +115,7 @@ public class EventController {
 
 
 		
-		private boolean insertEvent(String name, String description, String category, String xPosition, String yPosition, String startDate, String endDate, Object userDTO) {
+		/*private boolean insertEvent(String name, String description, String category, String xPosition, String yPosition, String startDate, String endDate, Object userDTO) {
 			EventDTO dto = new EventDTO();
 			LocalDateTime startD,endD;
 			dto.setName(name);
@@ -133,19 +128,27 @@ public class EventController {
 			dto.setStartDate(startD);
 			dto.setEndDate(endD);
 			dto.setUserDTO((UserDTO)userDTO);
-			EventDTO ans = service.insert(dto);
+			EventDTO ans = eventService.insert(dto);
 			if(ans != null) return true;
 			else return false;
 		
 		}
+		 */
+
+		private void setAllUser(HttpServletRequest request) {
+			request.getSession().setAttribute("userlist", userService.getAll());
+		}
+		private void setAllEvent(HttpServletRequest request) {
+			request.getSession().setAttribute("eventlist", eventService.getAll());
+		}
 		
-		private void setAllByUser(HttpServletRequest request) {
+		/*private void setAllByUser(HttpServletRequest request) {
 			UserDTO userDTO = (UserDTO) request.getSession().getAttribute("user"); 
 			//long idUser = userDTO.getId();
-			request.getSession().setAttribute("list", service.getAllByUser(userDTO));
-		  //request.getSession().setAttribute("list", service.getByUser_id(idUser));
+			request.getSession().setAttribute("list", eventService.getAllByUser(userDTO));
+		  //request.getSession().setAttribute("list", eventService.getByUser_id(idUser));
 			
-		}
+		}*/
 		
 		
 }
