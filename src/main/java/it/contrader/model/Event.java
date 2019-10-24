@@ -25,41 +25,40 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "event")
 public class Event {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
-	@Column(name ="name")
+	@Column(name = "name")
 	private String name;
-	
+
 	@NotNull
-	@Column(name ="description")
+	@Column(name = "description")
 	private String description;
-	
+
 	@NotNull
-	@Column(name ="category")
+	@Column(name = "category")
 	private String category;
-	
+
 	@NotNull
 	@Column(name = "arguments")
 	private String arguments;
-	
+
 	@NotNull
-	@Column(name ="startDate")
+	@Column(name = "startDate")
 	private LocalDateTime startDate;
-	
+
 	@NotNull
-	@Column(name ="endDate")
+	@Column(name = "endDate")
 	private LocalDateTime endDate;
-	
+
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name ="idUser", referencedColumnName ="id")
+	@JoinColumn(name = "idUser", referencedColumnName = "id")
 	private User user;
-	
-	@OneToMany(mappedBy="event", cascade = CascadeType.MERGE)
+
+	@OneToMany(mappedBy = "event", cascade = CascadeType.MERGE)
 	private List<Notification> notifications;
-	
 
 }

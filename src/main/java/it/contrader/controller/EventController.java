@@ -23,12 +23,12 @@ public class EventController {
 		private EventService eventService;
 		@Autowired
 		private UserService userService;
-		/*
+		
 		@GetMapping("/getallbyid")
 		public String getAllByUser(HttpServletRequest request) {
 			setAllByUser(request);
-			return "event/events";
-		} */
+			return "event/userevents";
+		} 
 		
 		/*@PostMapping("/insert")
 		public String insert(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("description") String description,
@@ -142,13 +142,13 @@ public class EventController {
 			request.getSession().setAttribute("eventlist", eventService.getAll());
 		}
 		
-		/*private void setAllByUser(HttpServletRequest request) {
+		private void setAllByUser(HttpServletRequest request) {
 			UserDTO userDTO = (UserDTO) request.getSession().getAttribute("user"); 
 			//long idUser = userDTO.getId();
 			request.getSession().setAttribute("list", eventService.getAllByUser(userDTO));
 		  //request.getSession().setAttribute("list", eventService.getByUser_id(idUser));
 			
-		}*/
+		}
 		
 		
 }

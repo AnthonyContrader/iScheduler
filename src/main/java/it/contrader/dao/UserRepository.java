@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import it.contrader.model.User;
 
 @Repository
+// Transactionl è la connessione Singleton al database
 @Transactional
 public interface UserRepository extends CrudRepository<User, Long> {
 
