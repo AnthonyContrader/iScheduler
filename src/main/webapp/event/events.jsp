@@ -8,12 +8,25 @@
 <meta name="description" content="Event Management">
 <meta name="author" content="Vittorio Valent">
 <link href="../css/vittoriostyle.css" rel="stylesheet">
+<style>
+		table {
+			border-collapse: collapse;
+			float:none;
+			margin-left:auto; 
+			margin-right:auto;
+			border-radius:4px;
+		    -moz-border-radius:4px;
+			}
+</style>
 <title>Event Manager</title>
+		
 </head>
 <body>
 	<%@ include file="../css/header.jsp"%>
 	<%@include file="../functions/navbar.jsp" %>
 	<%@	include file="../functions/Categories.html" %>
+	
+	
 	<div class="main">
 		<% 
 		List<EventDTO> eventList = (List<EventDTO>) request.getSession().getAttribute("eventlist");
@@ -21,8 +34,8 @@
 		%>
 		
 <br>
-
 		<table>
+		
 		<tr>
 			<th>Name</th>
 			<th>Description</th>
@@ -30,10 +43,11 @@
 			<th>StartDate</th>
 			<th>EndDate</th>
 			<th>Arguments</th>
-			<th></th>
+			<th>User</th>
 			<th></th>
 			<th></th>
 		</tr>
+		
 		<%
 			for(EventDTO e : eventList){	
 		%>
@@ -46,14 +60,23 @@
 			<td><%=e.getStartDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
 			<td><%=e.getEndDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
 			<td><%=e.getArguments() %></td>
+			<td><a href=/notification/read?id=<%=e.getId() %>><%=e.getUserDTO().getUsername() %></a>
+			 <input type="checkbox" name="listusers" form="myform" value=<%=e.getId() %>>
+			</td>
 			<td><a href=#>Edit</a></td>
 			<td><a href=#>Delete</a></td>
-			<td><a href=/notification/read>View Not.</a></td>
+			
+			
+			
 		</tr>
 		
-		
-		<% } %>
+		<% } %>	
 	</table>
+	
+
+	
+	
+	
 	<form id="floatright" action="/event/insert" method="post">
 	<div class="row">
 		<div class="col-25">
@@ -122,6 +145,17 @@
 	
 	<button type="submit">Insert</button>
 </form>
+
+<form id="myform" style=float:left action=/notification/insert method="post">
+		<div class="col-25">
+		 <label for="description">Description</label>
+		</div>
+		<div class="col-75">
+		 <input type="text" id="description" name="description" placeholder="Description here !">
+		</div>
+	
+	<button type="submit">Send Notify</button>
+	</form>	
 	
 	</div>
 	<br>

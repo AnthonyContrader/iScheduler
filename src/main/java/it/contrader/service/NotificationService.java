@@ -10,9 +10,11 @@ import it.contrader.converter.NotificationConverter;
 import it.contrader.dao.NotificationRepository;
 import it.contrader.dto.EventDTO;
 import it.contrader.dto.NotificationDTO;
+import it.contrader.model.Event;
+import it.contrader.model.Notification;
 
 @Service
-public class NotificationService {
+public class NotificationService extends AbstractService<Notification,NotificationDTO>{
 	@Autowired
 	private NotificationConverter notificationConverter;
 	@Autowired
