@@ -40,4 +40,10 @@ public class NotificationController {
 		request.getSession().setAttribute("notificationlist", notificationService.getNotificationByEvent_Id(id));
 		return "notification/notifications";
 	}
+	@GetMapping("/getallbyid")
+	public String getAllById(HttpServletRequest request, @RequestParam("id") long id) {
+		request.getSession().setAttribute("notificationlist", notificationService.getNotificationByEvent_Id(id));
+		return "notification/usernotifications";
+	}
+	
 }

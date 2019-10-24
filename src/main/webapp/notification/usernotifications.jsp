@@ -12,12 +12,13 @@
 </head>
 <body>
 	<%@ include file="../css/header.jsp"%>
-	<%@include file="../functions/navbar.jsp" %>
+	<%@include file="../functions/navbaruser.jsp" %>
 	
 	<div class="main">
 		<%
 			List<NotificationDTO> notificationList = (List<NotificationDTO>) request.getSession().getAttribute("notificationlist");
 		%>
+	
 	<br>
 	
 	<table>
@@ -41,7 +42,6 @@
 	 	}
 	 %>
 	</table>
-</div>
-	
+	</div>
 </body>
 </html>

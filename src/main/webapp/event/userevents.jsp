@@ -30,21 +30,20 @@
 				<th>EndDate</th>
 				<th>Arguments</th>
 				<th></th>
-				<th></th>
-				<th></th>
+				<th>N°</th>
 			</tr>
 			<%
 				for (EventDTO e : usereventList) {
 			%>
 			<tr>
-				<td><a href=/event/read?id= <%=e.getId()%>> <%=e.getName()%>
-				</a></td>
+				<td><%=e.getName()%></td>
 				<td><%=e.getDescription()%></td>
 				<td><%=e.getCategory()%></td>
 				<td><%=e.getStartDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm")))%></td>
 				<td><%=e.getEndDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm")))%></td>
 				<td><%=e.getArguments()%></td>
-				<td><a href=/notification/read?id=<%=e.getId() %>>View Not.</a></td>
+				<td><a href=/notification/getallbyid?id=<%=e.getId() %>>View Not.</a></td>
+				<td><%=e.getNotificationsDTO().size() %></td>
 			</tr>
 			<%
 				}

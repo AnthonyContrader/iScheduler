@@ -49,7 +49,7 @@
 		<table>
 		
 		<tr>
-			<th>#######</th>
+			<th>######</th>
 			<th>Name</th>
 			<th>Description</th>
 			<th>Category</th>
@@ -60,9 +60,11 @@
 			<th>Agent Surname</th>
 			<th>company</th>
 			<th>User</th>
+			<th>N°</th>
 			<th></th>
 			<th></th>
-			<th>#######</th>
+			
+			<th>######</th>
 		</tr>
 		
 		<%
@@ -70,10 +72,7 @@
 		%>
 		<tr>
 			<td>#</td>
-			<td><a href=/event/read?id=<%=e.getId()%>>
-					<%=e.getName()%>		
-			</a></td>
-			
+			<td><%=e.getName()%></td>
 			<td><%=e.getDescription() %></td>
 			<td><%=e.getCategory() %></td>
 			<td><%=e.getStartDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
@@ -85,8 +84,9 @@
 			<td><a href=/notification/read?id=<%=e.getId() %>><%=e.getUserDTO().getUsername() %></a>
 			 <input type="checkbox" name="listusers" form="myform" value=<%=e.getId() %>>
 			</td>
-			<td><a href=#>Edit</a></td>
-			<td><a href=#>Delete</a></td>
+			<td><%=e.getNotificationsDTO().size() %></td>
+			<td><a href=/event/preupdate?id=<%=e.getId() %>>Edit</a></td>
+			<td><a href=/event/delete?id=<%=e.getId() %>>Delete</a></td>
 			<td>#</td>
 			
 			

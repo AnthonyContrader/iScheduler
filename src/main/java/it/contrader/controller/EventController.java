@@ -27,6 +27,7 @@ public class EventController {
 		@GetMapping("/getallbyid")
 		public String getAllByUser(HttpServletRequest request) {
 			setAllByUser(request);
+			setCountNotification(request);
 			return "event/userevents";
 		} 
 		
@@ -46,6 +47,7 @@ public class EventController {
 		public String getAll(HttpServletRequest request) {
 			setAllEvent(request);
 			setAllUser(request);
+			setCountNotification(request);
 			return "event/events";
 		}
 
@@ -158,6 +160,10 @@ public class EventController {
 			//long idUser = userDTO.getId();
 			request.getSession().setAttribute("list", eventService.getAllByUser(userDTO));
 		  //request.getSession().setAttribute("list", eventService.getByUser_id(idUser));
+			
+		}
+		
+		private void setCountNotification(HttpServletRequest request) {
 			
 		}
 		
