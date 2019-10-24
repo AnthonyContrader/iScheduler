@@ -53,6 +53,18 @@ public class Event {
 	@NotNull
 	@Column(name = "endDate")
 	private LocalDateTime endDate;
+	
+	@NotNull
+	@Column(name = "agentName")
+	private String agentName;
+	
+	@NotNull
+	@Column(name = "agentSurname")
+	private String agentSurname;
+	
+	@NotNull
+	@Column(name = "company")
+	private String company;
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "idUser", referencedColumnName = "id")

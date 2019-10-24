@@ -17,6 +17,18 @@
 			border-radius:4px;
 		    -moz-border-radius:4px;
 			}
+			
+		textarea {
+		  width: 100%;
+		  height: 150px;
+		  padding: 12px 20px;
+		  box-sizing: border-box;
+		  border: 2px solid #ccc;
+		  border-radius: 4px;
+		  background-color: #f8f8f8;
+		  font-size: 16px;
+		  resize: none;
+		}
 </style>
 <title>Event Manager</title>
 		
@@ -37,34 +49,45 @@
 		<table>
 		
 		<tr>
+			<th>#######</th>
 			<th>Name</th>
 			<th>Description</th>
 			<th>Category</th>
 			<th>StartDate</th>
 			<th>EndDate</th>
 			<th>Arguments</th>
+			<th>Agent Name</th>
+			<th>Agent Surname</th>
+			<th>company</th>
 			<th>User</th>
 			<th></th>
 			<th></th>
+			<th>#######</th>
 		</tr>
 		
 		<%
 			for(EventDTO e : eventList){	
 		%>
 		<tr>
+			<td>#</td>
 			<td><a href=/event/read?id=<%=e.getId()%>>
 					<%=e.getName()%>		
 			</a></td>
+			
 			<td><%=e.getDescription() %></td>
 			<td><%=e.getCategory() %></td>
 			<td><%=e.getStartDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
 			<td><%=e.getEndDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm"))) %></td>
 			<td><%=e.getArguments() %></td>
+			<td><%=e.getAgentName() %></td>
+			<td><%=e.getAgentSurname() %></td>
+			<td><%=e.getCompany() %></td>
 			<td><a href=/notification/read?id=<%=e.getId() %>><%=e.getUserDTO().getUsername() %></a>
 			 <input type="checkbox" name="listusers" form="myform" value=<%=e.getId() %>>
 			</td>
 			<td><a href=#>Edit</a></td>
 			<td><a href=#>Delete</a></td>
+			<td>#</td>
 			
 			
 			
@@ -73,7 +96,8 @@
 		<% } %>	
 	</table>
 	
-
+<br>
+<br>
 	
 	
 	
@@ -142,16 +166,40 @@
 			</select>
 		</div>
 	</div>
-	
+	<div class="row">
+		<div class="col-25">
+		 <label for="agentName">Agent Name</label>
+		</div>
+		<div class="col-75">
+		 <input type="text" id="agentName" name="agentName">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+		 <label for="agentName">Agent Surname</label>
+		</div>
+		<div class="col-75">
+		 <input type="text" id="agentSurname" name="agentSurname">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-25">
+		 <label for="company">Company</label>
+		</div>
+		<div class="col-75">
+		 <input type="text" id="company" name="company">
+		</div>
+	</div>
 	<button type="submit">Insert</button>
 </form>
 
+
 <form id="myform" style=float:left action=/notification/insert method="post">
 		<div class="col-25">
-		 <label for="description">Description</label>
+		 <label for="notification">Description</label>
 		</div>
 		<div class="col-75">
-		 <input type="text" id="description" name="description" placeholder="Description here !">
+		<textarea id="notification" name="description">Insert description here ...</textarea>
 		</div>
 	
 	<button type="submit">Send Notify</button>

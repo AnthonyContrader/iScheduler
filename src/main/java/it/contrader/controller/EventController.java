@@ -66,16 +66,22 @@ public class EventController {
 		public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
 				@RequestParam("category") String category, @RequestParam("description") String description,
 				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,
-				@RequestParam("arguments") String arguments, @RequestParam("userDTO") UserDTO userDTO) {
+				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId,
+				@RequestParam("agentName") String agentName,@RequestParam("agentSurname") String agentSurname,
+				@RequestParam("company") String company) {
 			
 			EventDTO dto = new EventDTO();
 			
-			dto.setId(id);
 			dto.setName(name);
 			dto.setCategory(category);
 			dto.setDescription(description);
 			dto.setStartDate(LocalDateTime.parse(startDate));
 			dto.setEndDate(LocalDateTime.parse(endDate));
+			dto.setArguments(arguments);
+			dto.setAgentName(agentName);
+			dto.setAgentSurname(agentSurname);
+			dto.setCompany(company);
+			dto.setUserDTO(userService.read(Long.parseLong(userId)));
 			eventService.update(dto);
 			setAllEvent(request);
 			return "event/events";
@@ -85,7 +91,9 @@ public class EventController {
 			public String insert(HttpServletRequest request, @RequestParam("name") String name,
 				@RequestParam("category") String category, @RequestParam("description") String description,
 				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,
-				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId) {
+				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId,
+				@RequestParam("agentName") String agentName,@RequestParam("agentSurname") String agentSurname,
+				@RequestParam("company") String company) {
 			
 				EventDTO dto=new EventDTO();
 				dto.setName(name);
@@ -94,6 +102,9 @@ public class EventController {
 				dto.setStartDate(LocalDateTime.parse(startDate));
 				dto.setEndDate(LocalDateTime.parse(endDate));
 				dto.setArguments(arguments);
+				dto.setAgentName(agentName);
+				dto.setAgentSurname(agentSurname);
+				dto.setCompany(company);
 				dto.setUserDTO(userService.read(Long.parseLong(userId)));
 				eventService.insert(dto);
 				setAllEvent(request);

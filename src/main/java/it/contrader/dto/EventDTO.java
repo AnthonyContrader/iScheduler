@@ -25,6 +25,9 @@ public class EventDTO {
 	private String arguments;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;
+	private String agentName;
+	private String agentSurname;
+	private String company;
 	private UserDTO userDTO;
 	private List<Notification> notificationsDTO;
 

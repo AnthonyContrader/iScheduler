@@ -40,6 +40,9 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			event.setStartDate(eventDTO.getStartDate());
 			event.setEndDate(eventDTO.getEndDate());
 			event.setArguments(eventDTO.getArguments());
+			event.setAgentName(eventDTO.getAgentName());
+			event.setAgentSurname(eventDTO.getAgentSurname());
+			event.setCompany(eventDTO.getCompany());
 		}
 		return event;
 	}
@@ -63,6 +66,9 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			eventDTO.setStartDate(event.getStartDate());
 			eventDTO.setEndDate(event.getEndDate());
 			eventDTO.setArguments(event.getArguments());
+			eventDTO.setAgentName(event.getAgentName());
+			eventDTO.setAgentSurname(event.getAgentSurname());
+			eventDTO.setCompany(event.getCompany());
 		}
 		return eventDTO;
 	}
