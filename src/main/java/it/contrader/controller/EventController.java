@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.EventDTO;
+import it.contrader.dto.EventHistoryDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.*;
 @Controller
@@ -23,6 +24,8 @@ public class EventController {
 		private EventService eventService;
 		@Autowired
 		private UserService userService;
+		@Autowired
+		private EventHistoryService EvHiService;
 		
 		@GetMapping("/getallbyid")
 		public String getAllByUser(HttpServletRequest request) {
@@ -109,6 +112,14 @@ public class EventController {
 				dto.setCompany(company);
 				dto.setUserDTO(userService.read(Long.parseLong(userId)));
 				eventService.insert(dto);
+				EventHistoryDTO evDTO = new EventHistoryDTO();
+				evDTO.setAgentName(agentName);
+				evDTO.setAgentSurname(agentSurname);
+				evDTO.setCategory(category);
+				evDTO.setCompany(company);
+				evDTO.setResult(false);
+				evDTO.setUserDTO(userService.read(Long.parseLong(userId)));
+				EvHiService.insert(evDTO);
 				setAllEvent(request);
 				return "event/events";
 			}

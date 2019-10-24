@@ -84,7 +84,8 @@
 			<td><a href=/notification/read?id=<%=e.getId() %>><%=e.getUserDTO().getUsername() %></a>
 			 <input type="checkbox" name="listusers" form="myform" value=<%=e.getId() %>>
 			</td>
-			<td><%=e.getNotificationsDTO().size() %></td>
+			<td><%int count = 0; if(e.getNotificationsDTO() != null) { count = e.getNotificationsDTO().size(); }%>
+				<%=count %></td>
 			<td><a href=/event/preupdate?id=<%=e.getId() %>>Edit</a></td>
 			<td><a href=/event/delete?id=<%=e.getId() %>>Delete</a></td>
 			<td>#</td>
