@@ -68,11 +68,11 @@ public class EventController {
 		}
 
 		@PostMapping("/update")
-		public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
+		public String update(HttpServletRequest request, @RequestParam("name") String name,
 				@RequestParam("category") String category, @RequestParam("description") String description,
 				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,
-				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId,
-				@RequestParam("agentName") String agentName,@RequestParam("agentSurname") String agentSurname,
+				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId, 
+				@RequestParam("agentName") String agentName, @RequestParam("agentSurname") String agentSurname, 
 				@RequestParam("company") String company) {
 			
 			EventDTO dto = new EventDTO();
