@@ -44,7 +44,7 @@
 				<td><%=e.getStartDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm")))%></td>
 				<td><%=e.getEndDate().format((DateTimeFormatter.ofPattern("dd/MM/YYYY HH:mm")))%></td>
 				<td><%=e.getArguments()%></td>
-				<td><a href=#>View Not.</a></td>
+				<td><a href=/notification/read?id=<%=e.getId() %>>View Not.</a></td>
 			</tr>
 			<%
 				}
