@@ -23,7 +23,7 @@ public class EventService extends AbstractService<Event,EventDTO> {
 	private UserConverter userConverter;
 	
 	public  List<EventDTO> getByUser_id(long id){
-		return converter.toDTOList(repository.findByUser_id(id));
+		return eventConverter.toDTOList(repository.findByUser_id(id));
 	}
 	
 	public List<EventDTO> getAllByUser(UserDTO userDTO){

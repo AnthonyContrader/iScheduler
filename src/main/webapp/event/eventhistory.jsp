@@ -28,9 +28,6 @@
 				<th>Agent's surname</th>
 				<th>Company</th>
 				<th>Results</th>
-				<th></th>
-				<th></th>
-				<th></th>
 			</tr>
 			<%
 				for (EventHistoryDTO e : historyList) {

@@ -72,14 +72,6 @@
   </div>
   <div class="row">
     <div class="col-25">
-      <label for="arg">UserId</label>
-    </div>
-    <div class="col-75">
-      <input type="text" id="userid" name="userid" value=<%=e.getId()%>>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-25">
       <label for="arg">AgentName</label>
     </div>
     <div class="col-75">
@@ -102,6 +94,8 @@
       <input type="text" id="company" name="company" value=<%=e.getCompany()%>>
     </div>
   </div>
+  <input type="hidden" name="userid" value=<%=e.getUserDTO().getId() %>>
+  <input type="hidden" name="id" value=<%=e.getId() %>>
   
       <button type="submit" >Edit</button>
 </form>

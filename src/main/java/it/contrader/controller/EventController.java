@@ -73,10 +73,10 @@ public class EventController {
 				@RequestParam("startDate") String startDate, @RequestParam("endDate") String endDate,
 				@RequestParam("arguments") String arguments, @RequestParam("userid") String userId, 
 				@RequestParam("agentName") String agentName, @RequestParam("agentSurname") String agentSurname, 
-				@RequestParam("company") String company) {
+				@RequestParam("company") String company, @RequestParam("id") String id) {
 			
 			EventDTO dto = new EventDTO();
-			
+			dto.setId(Long.parseLong(id));
 			dto.setName(name);
 			dto.setCategory(category);
 			dto.setDescription(description);
