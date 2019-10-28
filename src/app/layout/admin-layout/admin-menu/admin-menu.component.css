@@ -1,0 +1,41 @@
+.sidenav {
+    height:92vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #1e282d;
+    overflow-x: visible;
+    transition: 0.5s;
+    padding-top: 0;
+  }
+  
+  
+  .menubtn{
+      width: 100%;
+      text-align: left;
+      background-color: #263238;
+      color: #f1f1f1;
+      border: none;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  
+  
+  a{
+      text-decoration: none;
+      color: white;
+  }
+  
+  button:focus {
+      background-color: #334247;
+  }
+  
+  button:hover, a:hover {
+  background-color: #334247;
+  color: darkorange;
+  }
+
+  *{
+      font-size: 16px;
+  }
