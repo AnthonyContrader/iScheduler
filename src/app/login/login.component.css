@@ -14,7 +14,7 @@ img{
 
 input, input:hover, input::selection, input:checked, input:focus{
     border: 0;
-    background-color: darkorange;
+    background-color: rgb(2, 90, 131);
     border-radius: 0;
     color: white;
     border-bottom: 1px solid crimson;
@@ -22,7 +22,7 @@ input, input:hover, input::selection, input:checked, input:focus{
 }
 
 .container-fluid{
-    background-color: darkorange;
+    background-color: rgb(2, 90, 131);
     height: 100vh;
 }
 input::placeholder{
@@ -30,14 +30,14 @@ input::placeholder{
 }
 .form-control{
 border: none;
-background-color: darkorange;
+background-color: rgb(2, 90, 131);
 color: white;
 border-bottom: 1px solid white;
 }
 
 .login{
 border: none;
-background-color: darkorange;
+background-color: rgb(2, 90, 131);
 color: white;
 border: 1px solid white;
 border-radius: 2px;

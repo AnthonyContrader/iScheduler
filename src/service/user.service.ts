@@ -14,9 +14,7 @@ import { Observable } from 'rxjs';
  * 
  * @see AbstractService
  */
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UserService extends AbstractService<UserDTO>{
 
   constructor(http: HttpClient) {

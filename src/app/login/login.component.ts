@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [UserService]
 })
 export class LoginComponent implements OnInit {
 
@@ -24,8 +25,9 @@ export class LoginComponent implements OnInit {
     this.service.login(this.loginDTO).subscribe((user) => {
 
       if (user != null) {
+        
         localStorage.setItem('currentUser', JSON.stringify(user));
-
+        console.log(localStorage.getItem('currentUser'));
         switch (user.usertype.toString()) {
           case 'ADMIN': {
             this.router.navigate(['/admin-dashboard']);
