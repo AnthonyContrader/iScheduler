@@ -5,6 +5,10 @@ import { UserService } from 'src/service/user.service';
 import { Router } from '@angular/router'; 
 import { style, transition, animate, trigger, state } from '@angular/animations';
 
+/*
+@Author Federico Maglione.
+*/
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
