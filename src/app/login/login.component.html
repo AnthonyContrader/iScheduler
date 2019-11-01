@@ -21,11 +21,87 @@
 
 
 <!--Author Federico Maglione-->
-<div [@divState]="position" class="exactCenter">
-  <div class="image">
-      <a href="/login#" (click)="changePosition('moveR')" id="movebtnL"><div class="clickerlogin"></div></a>
-      <a href="/login#" (click)="changePosition('moveL')"id="movebtnR"><div class="clickersignup"></div></a>
-      
+<div class="main">
+
+
+<div [@imgStateL]="dimensionL" class="exactLeft">
+  <div class="imageSide">
+      <div class="exactLeftForm">
+          <img src="../../assets/login/login icon.png" style="height: 100px; width: 110px; top: 15%; left: 40%; position: fixed">
+              <form #f="ngForm">
+            
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                <input type="text" id="fname" name="username" placeholder="Username" ngModel>
+                </div>
+              </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+              <input type="password" id="lname" name="password" placeholder="Password" ngModel>
+            </div>
+          </div>
+          <input type="checkbox" id="c2" name="cc" />
+          <label for="c2"><span></span>Remember me</label>
+          <p>
+          <div class="form-group row">
+              <div class="col-sm-12">
+                <input type="submit" class="button button1" (click)="login(f)" value="Login">
+              </div>
+            </div>
+              </form>
+           
+
+      </div>
   </div>
 </div>
 
+<div [@imgStateR]="dimensionR" class="exactRight">
+  <div class="imageSide">
+      <div class="exactRightForm">
+          <img src="../../assets/login/registrationIsc.png" style="height: 100px; width: 250px; top: 15%; left: 31%; position: fixed">
+              <form action="#">
+            
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                <input type="text" id="fname" name="firstname" placeholder="Fullname">
+                </div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-sm-12">
+                <input type="text" id="lname" name="lastname" placeholder="Email id">
+              </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+              <input type="text" id="lname" name="lastname" placeholder="Password">
+            </div>
+          </div>
+          <input type="checkbox" id="c1" name="cc" />
+          <label for="c1"><span></span>Remember me</label>
+          <p>
+          <div class="form-group row">
+              <div class="col-sm-12">
+                <input type="submit" class="button button1" value="Signup">
+              </div>
+            </div>
+              </form>
+           
+
+      </div>
+  </div>
+</div>
+
+<div [@divState]="position" class="exactCenter">
+    <div class="image" id="axis">
+       <img class="clock rotate360ccw" src="../../assets/login/clock.png"/>
+        <a href="/login#" (click)="changePosition('moveR')"  (click)="changeDimensionL('left')" (click)="changeDimensionR('left')"><div class="clickerlogin"></div></a>
+        <a href="/login#" (click)="changePosition('moveL')"  (click)="changeDimensionL('right')"(click)="changeDimensionR('right')"><div class="clickersignup"></div></a>
+      
+        
+    </div>
+  </div>
+
+</div>
+<!--<div class="exactLeft">
+  <div [@popOverLeftState]="stateNameL"><img src="../../assets/login/left reg.png"></div>
+</div>-->
