@@ -1,0 +1,48 @@
+*{
+    text-align: center;
+}
+
+/*Tables*/
+table {
+	border-collapse: collapse;
+	width: 100%;
+	float: left;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+th, td {
+	text-align: center;
+	padding: 2px;
+}
+
+td{
+    font-size: 16px;
+}
+
+
+tr:nth-child(even) {
+	background-color: #ffdb99;
+}
+
+th {
+	background-color: darkorange;
+	color: #ffffff;
+}
+
+a:hover {
+	color: #999999;
+}
+
+input, select{
+    background-color: inherit;
+    font-size: inherit;
+}
+
+input:hover,  input:active, input:focus{
+    border: 2px solid crimson;
+}
+
+button:hover{
+    background-color: crimson;
+}

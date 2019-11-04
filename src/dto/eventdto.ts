@@ -7,7 +7,7 @@ import { NotificationDTO } from './notificationdto';
  */
 export class EventDTO {
 
-    id: Number;
+    id: number;
     name: String;
     description: String;
     arguments: String;
@@ -16,8 +16,9 @@ export class EventDTO {
     agentName: String;
     agentSurname: String;
     company: String;
+    category: String;
     userDTO: UserDTO;
-    notificationsDTO: NotificationDTO[];
+    
 
 }
 

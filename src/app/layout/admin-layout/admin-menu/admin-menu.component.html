@@ -30,6 +30,14 @@
                         </i> Manage Users </a>
                 </button>
             </div>
+            <button class="menubtn">
+                    <a [routerLink]="['/admin-dashboard/eventhistory']"> <i class="fas fa-eye" style="margin-right: 10px"> </i>
+                        Event History </a>
+                </button>
+                <button class="menubtn">
+                    <a [routerLink]="['/admin-dashboard/events']"> <i class="fas fa-list" style="margin-right: 10px"> </i>
+                        Events List </a>
+                </button>
             <button class="menubtn" (click)="logout()">
                 <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i>Logout
             </button>

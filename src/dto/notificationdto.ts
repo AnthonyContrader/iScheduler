@@ -1,4 +1,4 @@
-import { UserDTO } from './userdto';
+
 import { EventDTO } from './eventdto';
 
 /**
