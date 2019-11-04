@@ -10,28 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.contrader.dto.EventDTO;
-import it.contrader.dto.UserDTO;
-import it.contrader.service.EventService;
-import it.contrader.service.UserService;
+import it.contrader.dto.NotificationDTO;
+
+import it.contrader.service.NotificationService;
+
 
 @RestController
-@RequestMapping("/event")
+@RequestMapping("/notification")
 @CrossOrigin(origins = "http://localhost:4200")
-public class EventController extends AbstractController<EventDTO> {
+public class NotificationController extends AbstractController<NotificationDTO> {
 	
 	@Autowired
-	private EventService eventService;
+	NotificationService notificationService;
 	
-	@Autowired
-	private UserService userService;
 	
-	//POST angular a EventDTO
-	@PostMapping(value = "/getallbyuser")
-	public List<EventDTO> getAllByUser(@RequestBody UserDTO userDTO){
-		return eventService.getAllByUser(userDTO);
-		
+	@PostMapping(value="/getnotificationbyevent")
+	public List<NotificationDTO> getNotificationByEvent(@RequestBody EventDTO eventDTO){
+		return notificationService.getNotificationByEvent(eventDTO);
 	}
-	
-	
 
 }

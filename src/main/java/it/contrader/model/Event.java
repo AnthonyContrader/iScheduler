@@ -16,7 +16,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,9 +44,6 @@ public class Event {
 	@Column(name = "description")
 	private String description;
 
-	@NotNull
-	@Column(name = "category")
-	private String category;
 
 	@NotNull
 	@Column(name = "arguments")
@@ -53,6 +53,10 @@ public class Event {
 	@Column(name = "startDate")
 	private LocalDateTime startDate;
 
+	@NotNull
+	@Column(name = "category")
+	private String category;
+	
 	@NotNull
 	@Column(name = "endDate")
 	private LocalDateTime endDate;
