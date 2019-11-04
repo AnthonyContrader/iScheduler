@@ -40,7 +40,7 @@
     width: 800px;
   }
 
-.exactLeftForm {
+.exactPosForm {
     position: fixed;
     top: 30%;
     left: 32%;
@@ -49,7 +49,7 @@
 .exactRightForm {
     position: fixed;
     top: 30%;
-    left: 33%;
+    left: 32%;
 }
 
   .exactLeft {
@@ -76,22 +76,64 @@
 
 .clickersignup{
     display: block;
-    width: 140px;
-    height: 140px;
+    width: 172px;
+    height: 172px;
     position: absolute;
-    left: 570px;
-    top: 160px;
+    left: 551px;
+    top: 146px;
+    border-radius: 50%;
+    -moz-transition: 0.2s ease-in;
+    -o-transition:  0.2s ease-in;
+    -webkit-transition:  0.2s ease-in;
+    transition:  0.2s ease-in;
+    
 }
+
+.clickersignup:hover{
+    display: block;
+    width: 172px;
+    height: 172px;
+    position: absolute;
+    left: 551px;
+    top: 146px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.349);
+    -moz-transition: box-shadow  0.2s ease-in;
+    -o-transition: box-shadow 0.2s ease-in;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+
 
 .clickerlogin{
     display: block;
-    width: 140px;
-    height: 140px;
+    width: 172px;
+    height: 172px;
     position: absolute;
-    left: 80px;
-    top: 110px;
+    left: 66px;
+    top: 99px;
+    border-radius: 50%;
+    -moz-transition: 0.2s ease-in;
+    -o-transition:  0.2s ease-in;
+    -webkit-transition:  0.2s ease-in;
+    transition:  0.2s ease-in;
 }
 
+.clickerlogin:hover{
+    display: block;
+    width: 172px;
+    height: 172px;
+    position: absolute;
+    left: 66px;
+    top: 99px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.349);
+    -moz-transition: box-shadow  0.2s ease-in;
+    -o-transition: box-shadow 0.2s ease-in;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
 
 input {
     width: 100%;
@@ -149,6 +191,9 @@ input[type="checkbox"]:checked + label span {
 
 
 .clock{
+    transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
     -webkit-transition: all 2s ease-in-out;
     width: 40px;
     height: 316px;
@@ -164,57 +209,3 @@ input[type="checkbox"]:checked + label span {
     -o-transform: rotate(360deg); 
     -moz-transform: rotate(360deg);
 }
-
-/*form{
-    margin-top:270px;
-    width: 55%;
-    padding: 10px;
-    border-radius:0;
-    border-color: crimson;
-}
-
-img{
-    position: inherit;
-    width:50%;
-    margin: 12%;
-}
-
-input, input:hover, input::selection, input:checked, input:focus{
-    border: 0;
-    background-color: rgb(2, 90, 131);
-    border-radius: 0;
-    color: white;
-    border-bottom: 1px solid crimson;
-    margin: 0px; 
-}
-
-.container-fluid{
-    background-color: rgb(2, 90, 131);
-    height: 100vh;
-}
-input::placeholder{
-    color: white;
-}
-.form-control{
-border: none;
-background-color: rgb(2, 90, 131);
-color: white;
-border-bottom: 1px solid white;
-}
-
-.login{
-border: none;
-background-color: rgb(2, 90, 131);
-color: white;
-border: 1px solid white;
-border-radius: 2px;
-padding-top: 10px;
-padding-right: auto;
-padding-bottom: 10px;
-padding-left: auto;
-}
-
-p{
-font-size: 14px;
-color: white;
-}*/
