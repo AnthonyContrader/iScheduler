@@ -12,7 +12,7 @@ import { EventDTO } from './eventdto';
  */
 export class NotificationDTO {
 
-    id: Number;
+    id: number;
     description: String;
     eventDTO: EventDTO;
 

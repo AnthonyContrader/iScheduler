@@ -1,3 +1,44 @@
-<p>
-  notifications works!
-</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Description
+          </th>
+          <th>
+            Event
+          </th>
+          <th>
+            Edit
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="description" [(ngModel)]="notinsert.description">
+          </td>
+          <td>
+            <button (click)="insert(notinsert)" (click)="clear()">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let notification of notifications">
+          <td>
+            <input [(ngModel)]="notification.description">
+          </td>
+          <td>
+            <button (click)="delete(notification)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { UsersComponent } from './users/users.component';
 import { WorkInProgressComponent } from './work-in-progress/work-in-progress.component';
 import { EventHistoryComponent } from './eventhistory/eventhistory.component';
 import { EventsComponent } from './events/events.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 /**
  * Modulo di routing dell'admin. Qui ci sono i percorsi che un admin può seguire:
@@ -25,7 +26,8 @@ const routes: Routes = [
     { path: 'users', component: UsersComponent},
     { path: 'work-in-progress', component: WorkInProgressComponent},
     {path: 'eventhistory', component: EventHistoryComponent},
-    {path: 'events', component:EventsComponent}
+    {path: 'events', component:EventsComponent},
+    {path: 'notifications', component:NotificationsComponent}
   ]}
 ];
 

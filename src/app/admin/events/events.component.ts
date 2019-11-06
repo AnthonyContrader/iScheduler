@@ -47,7 +47,10 @@ export class EventsComponent implements OnInit {
 
     this.eventService.delete(event.id).subscribe(() => this.getEvents());
   }
-
+  
+  getEvent(event: EventDTO){
+    localStorage.setItem('Event', JSON.stringify(event));
+  }
   
 
   clear(){

@@ -100,6 +100,8 @@
             </td>
            <td>
              <label >{{event.userDTO.username}}</label>
+            </td>
+            <td><button (click)="getEvent(event)" [routerLink]="['/admin-dashboard/notifications']">Notifications</button></td>
             <td>
               <button (click)="delete(event)">Delete</button>
             </td>

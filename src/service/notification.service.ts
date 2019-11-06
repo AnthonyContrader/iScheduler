@@ -19,4 +19,8 @@ export class NotificationService extends AbstractService<NotificationDTO>{
     getNotificationByEvent(eventDTO: EventDTO): Observable<NotificationDTO[]>{
       return this.http.post<NotificationDTO[]>('http://localhost:8080/'+this.type+'/getnotificationbyevent', eventDTO);
     }
+
+    getAllByEvent(eventDTO: EventDTO): Observable<NotificationDTO[]>{
+      return this.http.post<any>('http://localhost:8080/'+ this.type + '/getallbyevent', eventDTO);
+    }
 }
