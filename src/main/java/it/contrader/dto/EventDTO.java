@@ -33,6 +33,6 @@ public class EventDTO {
 	private String agentSurname;
 	private String company;
 	private UserDTO userDTO;
-	private List<Notification> notificationsDTO;
+	/*private List<Notification> notificationsDTO;*/
 
 }

@@ -74,8 +74,8 @@ public class Event {
 	@JoinColumn(name = "idUser", referencedColumnName = "id")
 	private User user;
 	
-	
+	/*@JsonIgnore
 	@OneToMany(mappedBy = "event", cascade = CascadeType.MERGE)
-	private List<Notification> notifications;
+	private List<Notification> notifications;*/
 
 }

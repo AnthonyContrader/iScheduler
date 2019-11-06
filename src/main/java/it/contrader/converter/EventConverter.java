@@ -26,9 +26,9 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 				event.setUser(userConverter.toEntity(eventDTO.getUserDTO()));
 			}
 			event.setDescription(eventDTO.getDescription());
-			if(eventDTO.getNotificationsDTO()!=null) {
+			/*if(eventDTO.getNotificationsDTO()!=null) {
 				event.setNotifications(eventDTO.getNotificationsDTO());
-			}
+			}*/
 			
 			
 			event.setCategory(eventDTO.getCategory());
@@ -53,9 +53,9 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 				eventDTO.setUserDTO(userConverter.toDTO(event.getUser()));
 			}
 			eventDTO.setDescription(event.getDescription());
-			if(event.getNotifications()!=null) {
+			/*if(event.getNotifications()!=null) {
 				eventDTO.setNotificationsDTO(event.getNotifications());
-			}
+			}*/
 			
 			eventDTO.setName(event.getName());
 			eventDTO.setCategory(event.getCategory());

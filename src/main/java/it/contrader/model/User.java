@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,8 +46,9 @@ public class User {
 	private Usertype usertype;
 	
 	//Relazione tra utente e i suoi eventi
+	/*@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
-	private List<Event> events;
+	private List<Event> events;*/
 	
 	//Relazione tra utenti e le notifiche ricevute.
 	/*@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)

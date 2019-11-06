@@ -15,5 +15,6 @@ public interface NotificationRepository extends CrudRepository<Notification, Lon
 
 	public List<Notification> findNotificationByEvent(Event event);  
 	public List<Notification> findByEvent_id(long id);
+	public List<Notification> findAllByEvent(Event event);
 
 }

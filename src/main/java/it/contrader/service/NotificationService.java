@@ -28,4 +28,8 @@ public class NotificationService extends AbstractService<Notification,Notificati
 	public List<NotificationDTO> getNotificationByEvent_Id(long idEvent){
 		return notificationConverter.toDTOList(notificationRepository.findByEvent_id(idEvent));
 	}
+	
+	public List<NotificationDTO> findAllByEvent(EventDTO eventDTO){
+		return notificationConverter.toDTOList(notificationRepository.findAllByEvent(eventConverter.toEntity(eventDTO)));
+	}
 }
