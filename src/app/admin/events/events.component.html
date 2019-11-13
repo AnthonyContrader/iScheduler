@@ -1,0 +1,113 @@
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12" style="overflow-x: auto;">
+      <table style="width: 100%;">
+        <tr>
+          <th >
+            Name
+          </th>
+          <th >Description</th>
+          <th >Arguments</th>
+          <th >Start Date</th>
+          <th >End Date</th>
+          <th >Agent Name</th>
+          <th >Agent Surname</th>
+          <th >Company</th>
+          <th >category</th>
+          <th >User</th>
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input style="width: 130px;" placeholder="name" [(ngModel)]="eventinsert.name">
+          </td>
+          <td>
+            <input  style="width: 130px;" placeholder="description" [(ngModel)]="eventinsert.description">
+          </td>
+          <td>
+            <input  style="width: 120px;" placeholder="arguments" [(ngModel)]="eventinsert.arguments">
+          </td>
+          <td>
+            <input placeholder="startdate" type="datetime-local" [(ngModel)]="eventinsert.startDate">
+          </td>
+          <td>
+            <input placeholder="enddate" type="datetime-local" [(ngModel)]="eventinsert.endDate">
+          </td>
+          <td>
+            <input  style="width: 110px;" placeholder="agentname" [(ngModel)]="eventinsert.agentName">
+          </td>
+          <td>
+            <input  style="width: 135px;" placeholder="agentsurname" [(ngModel)]="eventinsert.agentSurname">
+          </td>
+          <td>
+            <input  style="width: 100px;" placeholder="company" [(ngModel)]="eventinsert.company">
+          </td>
+          <td>
+            <input  style="width: 100px;" placeholder="category" [(ngModel)]="eventinsert.category">
+          </td>
+          <td>
+         <select [(ngModel)]="eventinsert.userDTO">
+            <option *ngFor="let user of users" [ngValue]="user" >{{user.username}}</option>
+          </select>
+          </td>
+          
+          <td>
+            <button (click)="insert(eventinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        
+
+          
+          <tr *ngFor="let event of events">
+            <td>
+              <input [(ngModel)]="event.name">
+            </td>
+            <td>
+              <input [(ngModel)]="event.description">
+            </td>
+            <td>
+              <input [(ngModel)]="event.arguments">
+            </td>
+            <td>
+              <input [(ngModel)]="event.startDate">
+            </td>
+            <td>
+              <input [(ngModel)]="event.endDate">
+            </td>
+            <td>
+              <input [(ngModel)]="event.agentName">
+            </td>
+            <td>
+              <input [(ngModel)]="event.agentSurname">
+            </td>
+            <td>
+            <input [(ngModel)]="event.company">
+            </td>
+            <td>
+              <input [(ngModel)]="event.category">
+            </td>
+           <td>
+             <label >{{event.userDTO.username}}</label>
+            <td>
+              <button (click)="delete(event)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  
+         
+         
+
+         

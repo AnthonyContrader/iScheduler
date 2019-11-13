@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <div class="card" *ngFor="let event of events, let i= index">
+      <input type="checkbox" id="card{{i+1}}" class="more" aria-hidden="true">
+      <div class="content">
+          <div class="front" style="background-image: url('https://3zwxw842y1vd1q8d63iqpnmul5-wpengine.netdna-ssl.com/wp-content/uploads/2016/09/deloitte-digital-telnext.jpg')">
+              <div class="inner">   
+                  <h2>{{event.name}}</h2>
+                  <h6>{{event.startDate | date:'d LLL y H:mm'}}</h6>
+                  
+                  <label for="card{{i+1}}" class="button" aria-hidden="true">
+                      Details
+                  </label>
+              </div>
+          </div>
+          <div class="back">
+              <div class="inner">
+                  <div class="info">
+                      <span><i class="fab fa-skype"></i></span>
+                      <div class="icon">
+                          <span>{{event.category}}</span>
+                      </div>
+                  </div>
+                  <div class="info">
+                      <span><i class="fas fa-cogs"></i></span>
+                      <div class="icon">
+                          <span>{{event.arguments}}</span>
+                      </div>
+                  </div>
+                  <div class="info">
+                      <span><i class="fas fa-users"></i></span>
+                      <div class="icon">
+                          <span>{{event.company}}</span>
+                      </div>
+                  </div>
+                  <div class="description">
+                      <p>{{event.description}}</p>
+                  </div>
+                  <div class="location">{{event.startDate | date:'d LLL y H:mm'}} to {{event.endDate | date:'d LLL y H:mm'}}</div>
+                  <div class="price">{{event.agentName}} {{event.agentSurname}}</div>
+                  <label for="card{{i+1}}" class="button return" aria-hidden="true">
+                      <i class="fas fa-arrow-left"></i>
+                  </label>
+              </div>
+          </div>
+      </div>  
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-10">
+      <table>
+        <tr>
+          <th>
+            Username
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            First Name
+          </th>
+          <th>
+            Last Name
+          </th>
+          <th>
+            Usertype
+          </th>
+          <th>
+            Edit
+          </th>
+          <th>
+            User
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <input placeholder="username" [(ngModel)]="usertoinsert.login">
+          </td>
+          <td>
+            <input placeholder="email" [(ngModel)]="usertoinsert.email">
+          </td>
+          <td>
+            <input placeholder="first name" [(ngModel)]="usertoinsert.firstName">
+          </td>
+          <td>
+            <input placeholder="last name" [(ngModel)]="usertoinsert.lastName">
+          </td>
+          <td>
+            <select placeholder="usertype" [(ngModel)]="usertoinsert.authorities[0]">
+              <option value="ROLE_ADMIN">ADMIN</option>
+              <option value="ROLE_USER">USER</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="insert(usertoinsert)">Insert</button>
+          </td>
+          <td>
+            <button (click)="clear()">Clear</button>
+          </td>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>
+            <input [(ngModel)]="user.login">
+          </td>
+          <td>
+            <input [(ngModel)]="user.email">
+          </td>
+          <td>
+            <input [(ngModel)]="user.firstName">
+          </td>
+          <td>
+            <input [(ngModel)]="user.lastName">
+          </td>
+          <td>
+            <select [(ngModel)]="user.authorities[0]">
+              <option  value="ROLE_ADMIN" >ADMIN</option>
+              <option  value="ROLE_USER">USER</option>
+            </select>
+          </td>
+          <td>
+            <button (click)=update(user)>Save</button>
+          </td>
+          <td>
+            <button (click)="delete(user.login)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

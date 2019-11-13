@@ -1,0 +1,85 @@
+<div class="container">
+        <div class="row mt-5">
+          <div class="col-md-10">
+            <table>
+              <tr>
+                <th>
+                  Category
+                </th>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Surname
+                </th>
+                <th>Company</th>
+                <th>Result</th>
+                <th>User</th>
+                <th>
+                  Edit
+                </th>
+                <th>
+                
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <input placeholder="category" [(ngModel)]="eventhistoryins.category">
+                </td>
+                <td>
+                  <input placeholder="name" [(ngModel)]="eventhistoryins.agentName">
+                </td>
+                <td>
+                    <input placeholder="surname" [(ngModel)]="eventhistoryins.agentSurname">
+                </td>
+                <td>
+                    <input placeholder="company" [(ngModel)]="eventhistoryins.company">
+                </td>
+                <td>
+                  <select placeholder="result" [(ngModel)]="eventhistoryins.result">
+                    <option value="true">Positive </option>
+                    <option value="false">Negative</option>
+                  </select>
+                </td>
+               
+                <td>
+                  <button (click)="insert(eventhistoryins)">Insert</button>
+                </td>
+                <td>
+                  <button (click)="clear()">Clear</button>
+                </td>
+              </tr>
+              <tr *ngFor="let eventhistory of eventhistorys">
+                <td>
+                  <input [(ngModel)]="eventhistory.category">
+                </td>
+                <td>
+                  <input [(ngModel)]="eventhistory.agentName">
+                </td>
+                <td>
+                    <input [(ngModel)]="eventhistory.agentSurname">
+                </td>
+                <td>
+                    <input [(ngModel)]="eventhistory.company">
+                </td>
+                <td>
+                  <select [(ngModel)]="eventhistory.result">
+                    <option [selected]="eventhistory.result===true" value="true">Positive</option>
+                    <option [selected]="eventhistory.result===false" value="false">Negative</option>
+                  </select>
+                </td>
+               
+                <td>
+                  <button (click)=update(eventhistory)>Save</button>
+                </td>
+                <td>
+                  <button (click)="delete(eventhistory)">Delete</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-md-1">
+      
+          </div>
+        </div>
+      </div>

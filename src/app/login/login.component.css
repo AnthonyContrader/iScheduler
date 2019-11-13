@@ -1,0 +1,211 @@
+
+
+.main {
+	position: fixed;
+}
+.image {
+    background: url(../../assets/login/background.jpg) no-repeat center ; position: absolute;
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.imageSide{
+    background: url(../../assets/login/leftreg.png) no-repeat center ; position: absolute;
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;; 
+}
+.exactCenter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    height: 700px;
+    width: 800px;
+  }
+
+.exactPosForm {
+    position: fixed;
+    top: 30%;
+    left: 32%;
+}
+
+.exactRightForm {
+    position: fixed;
+    top: 30%;
+    left: 32%;
+}
+
+  .exactLeft {
+    position: fixed;
+    top: -5%;
+    left: 0.5%;
+    opacity: 0;
+    /* bring your own prefixes */
+    
+    height: 720px;
+    width: 600px;
+  }
+  .exactRight {
+    position: fixed;
+    top: -5%;
+    left: 56%;
+    opacity: 0;
+    /* bring your own prefixes */
+    
+    height: 720px;
+    width: 600px;
+  }
+
+
+.clickersignup{
+    display: block;
+    width: 172px;
+    height: 172px;
+    position: absolute;
+    left: 551px;
+    top: 146px;
+    border-radius: 50%;
+    -moz-transition: 0.2s ease-in;
+    -o-transition:  0.2s ease-in;
+    -webkit-transition:  0.2s ease-in;
+    transition:  0.2s ease-in;
+    
+}
+
+.clickersignup:hover{
+    display: block;
+    width: 172px;
+    height: 172px;
+    position: absolute;
+    left: 551px;
+    top: 146px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.349);
+    -moz-transition: box-shadow  0.2s ease-in;
+    -o-transition: box-shadow 0.2s ease-in;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+
+
+.clickerlogin{
+    display: block;
+    width: 172px;
+    height: 172px;
+    position: absolute;
+    left: 66px;
+    top: 99px;
+    border-radius: 50%;
+    -moz-transition: 0.2s ease-in;
+    -o-transition:  0.2s ease-in;
+    -webkit-transition:  0.2s ease-in;
+    transition:  0.2s ease-in;
+}
+
+.clickerlogin:hover{
+    display: block;
+    width: 172px;
+    height: 172px;
+    position: absolute;
+    left: 66px;
+    top: 99px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px 20px rgba(255, 255, 255, 0.349);
+    -moz-transition: box-shadow  0.2s ease-in;
+    -o-transition: box-shadow 0.2s ease-in;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+input {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 16px;
+    background-color: #3E5EA9;
+    text-decoration-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
+  .button1 {
+    background-color: #3E5EA9;
+    color: white;
+    border: 1px solid white; 
+    border-radius: 16px;
+    padding: 6px 10px;
+    width: 100%;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  input[type="checkbox"] {
+    display:none;
+}
+
+input[type="checkbox"] + label {
+    color:#f2f2f2;
+}
+
+input[type="checkbox"] + label span {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-2px 10px 0 0;
+    vertical-align:middle;
+    background:url(../../assets/login/check_radio_sheet.png) left top no-repeat;
+    cursor:pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+    background:url(../../assets/login/check_radio_sheet.png) -19px top no-repeat;
+}
+
+
+.clock{
+    transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+    width: 40px;
+    height: 316px;
+    position: absolute;
+    left: 370px;
+    top: 157px;
+}
+
+
+#axis:hover .rotate360ccw {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg); 
+    -moz-transform: rotate(360deg);
+}

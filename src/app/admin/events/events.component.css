@@ -1,0 +1,58 @@
+* {
+	font-family: CaviarDreams_Bold;
+	font-size: 14px;
+}
+/*Tables*/
+table {
+	border: collapse;
+	width: 100%;
+	float: left;
+	table-layout: auto;
+	white-space: nowrap;
+}
+
+
+th {
+	text-align: left;
+	padding: 5px;
+	font-size: 15px;
+	color: #000000;
+}
+
+
+td{
+	text-align: left;
+	padding: 0px;
+	height: 40px;
+	border: collapse;
+	white-space: nowrap;
+}
+
+input{
+	width: 100%;
+	height: 100%;
+	border: 1px  ;
+	border-style: solid ;
+	border-radius: 10px;
+	border-color: rgb(216, 216, 216);
+	padding:10px;
+}
+
+input:hover {
+	outline: none;
+	border: 2px solid #003e85;
+}
+
+
+input:focus{
+	outline: none;
+	border: 2px solid #003e85;
+    box-shadow: inset 0px 0px 6px 2px #003e85;
+}
+
+select{
+    background-color: inherit;
+    font-size: inherit;
+}
+
+

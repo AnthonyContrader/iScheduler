@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+    background-color: #3D5FA9
+}
+
+@font-face {
+	font-family: CaviarDreams_Bold;
+	src: url(/assets/fonts/CaviarDreams_Bold.ttf) format("opentype");
+  }
+
