@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/service/event.service';
 import { EventDTO } from 'src/dto/eventdto';
 import { UserDTO } from 'src/dto/userdto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -19,7 +20,7 @@ export class EventsComponent implements OnInit {
   eventinsert: EventDTO = new EventDTO();
   user : UserDTO;
 
-  constructor(private userService: UserService, private eventService: EventService) { }
+  constructor(private userService: UserService, private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
     this.getUsers();
@@ -40,6 +41,7 @@ export class EventsComponent implements OnInit {
     this.user = this.eventinsert.userDTO;
     event.userDTO = this.user;
     this.eventService.insert(event).subscribe(() => this.getEvents());
+    this.clear();
   }
 
 
@@ -50,6 +52,7 @@ export class EventsComponent implements OnInit {
   
   getEvent(event: EventDTO){
     localStorage.setItem('Event', JSON.stringify(event));
+    this.router.navigate(['/admin-dashboard/notifications']);
   }
   
 

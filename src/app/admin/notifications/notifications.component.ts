@@ -30,6 +30,7 @@ export class NotificationsComponent implements OnInit {
   insert(notification: NotificationDTO){
     notification.eventDTO = this.event;
     this.notService.insert(notification).subscribe(() => this.getNotifications());
+    this.clear();
   }
 
   delete(notification: NotificationDTO){

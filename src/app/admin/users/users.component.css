@@ -17,7 +17,7 @@ th, td {
 }
 
 td{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 
@@ -45,4 +45,9 @@ input:hover,  input:active, input:focus{
 
 button:hover{
     background-color: crimson;
+}
+
+button{
+	
+	color: aqua;
 }

@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { UserService } from 'src/service/user.service';
 import { Router } from '@angular/router';
 import { style, transition, animate, trigger, state } from '@angular/animations';
+import { UserDTO } from 'src/dto/userdto';
+import { getClosureSafeProperty } from '@angular/core/src/util/property';
 
 /*
 @Author Federico Maglione.
@@ -62,6 +64,8 @@ export class LoginComponent implements OnInit {
   loginDTO: LoginDTO;
   showR: boolean = false;
   showL: boolean = false;
+  userinsert: UserDTO = new UserDTO;
+  userinsert2: UserDTO = new UserDTO;
 
   constructor(private service: UserService, private router: Router) { }
 
@@ -86,14 +90,29 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+}
 
-
+  getClear(){
+    this.userinsert= new UserDTO;
+    this.userinsert2 = new UserDTO;
   }
+
+  insert(user:UserDTO){
+    user.usertype = 1;
+    if(this.userinsert.password==this.userinsert2.password){
+    this.service.insert(user).subscribe();
+    this.loginDTO = new LoginDTO(user.username, user.password);
+    this.service.login(this.loginDTO).subscribe((user)=> {localStorage.setItem('currentUser',JSON.stringify(user))
+    this.router.navigate(['/user-dashboard']);})
+      
+    }
+  }
+
+  
 
 
   login(f: NgForm): void {
     this.loginDTO = new LoginDTO(f.value.username, f.value.password);
-
     this.service.login(this.loginDTO).subscribe((user) => {
 
       if (user != null) {
