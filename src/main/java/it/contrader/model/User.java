@@ -1,14 +1,11 @@
 package it.contrader.model;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -44,8 +41,8 @@ public class User {
 	private Usertype usertype;
 	
 	//Relazione tra utente e i suoi eventi
-	@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
-	private List<Event> events;
+	/*@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
+	private List<Event> events;*/
 	
 	//Relazione tra utenti e le notifiche ricevute.
 	/*@OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)

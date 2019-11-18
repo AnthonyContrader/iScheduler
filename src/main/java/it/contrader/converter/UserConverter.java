@@ -19,9 +19,6 @@ public class UserConverter extends AbstractConverter<User, UserDTO> {
 		if (userDTO != null) {
 			user = new User();
 			user.setId(userDTO.getId());
-			if(userDTO.getEvents()!=null) {
-				user.setEvents(userDTO.getEvents());
-			}
 			user.setUsername(userDTO.getUsername());
 			user.setPassword(userDTO.getPassword());
 			user.setUsertype(userDTO.getUsertype());
@@ -35,9 +32,6 @@ public class UserConverter extends AbstractConverter<User, UserDTO> {
 		if (user != null) {
 			userDTO = new UserDTO();
 			userDTO.setId(user.getId());
-			if(user.getEvents()!=null) {
-				userDTO.setEvents(user.getEvents());
-			}
 			userDTO.setUsername(user.getUsername());
 			userDTO.setPassword(user.getPassword());
 			userDTO.setUsertype(user.getUsertype());

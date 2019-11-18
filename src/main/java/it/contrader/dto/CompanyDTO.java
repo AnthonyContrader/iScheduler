@@ -1,10 +1,9 @@
 package it.contrader.dto;
 
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import it.contrader.model.User.Usertype;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,16 +12,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class UserDTO {
-
-	private Long id;
-
-	private String username;
-
-	private String password;
-
-	private Usertype usertype;
+public class CompanyDTO {
 	
-	//private List<Event> events;
+	private long id;
+	
+	private String name;
+	
+	private String address;
+
+	private String city;
+	
+	private String sector;
+	
 
 }
+
+

@@ -3,6 +3,7 @@ package it.contrader.dto;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import it.contrader.model.Company;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class EventHistoryDTO {
-
-	private Long id;
-	private String category;
-	private String agentName;
-	private String agentSurname;
-	private String company;
-	private Boolean result;
-	private UserDTO userDTO;
-
+public class RecruiterDTO{
+	
+	private long id;
+	private String name;
+	private Company company;
 }

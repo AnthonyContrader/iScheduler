@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import it.contrader.dto.EventDTO;
 import it.contrader.dto.UserDTO;
 import it.contrader.service.EventService;
-import it.contrader.service.UserService;
 
 @RestController
 @RequestMapping("/event")
@@ -21,9 +20,6 @@ public class EventController extends AbstractController<EventDTO> {
 	
 	@Autowired
 	private EventService eventService;
-	
-	@Autowired
-	private UserService userService;
 	
 	//POST angular a EventDTO
 	@PostMapping(value = "/getallbyuser")

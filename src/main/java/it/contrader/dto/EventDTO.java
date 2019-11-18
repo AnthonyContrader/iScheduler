@@ -1,12 +1,10 @@
 package it.contrader.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import it.contrader.model.Notification;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,8 +29,8 @@ public class EventDTO {
 	private LocalDateTime endDate;
 	private String agentName;
 	private String agentSurname;
-	private String company;
+	private CompanyDTO company;
 	private UserDTO userDTO;
-	private List<Notification> notificationsDTO;
+	//private List<Notification> notificationsDTO;
 
 }

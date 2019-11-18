@@ -14,6 +14,8 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 	NotificationConverter notificationConverter;
 	@Autowired
 	UserConverter userConverter;
+	@Autowired
+	CompanyConverter companyConverter;
 	
 	
 	@Override
@@ -25,12 +27,11 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			if(eventDTO.getUserDTO()!=null) {
 				event.setUser(userConverter.toEntity(eventDTO.getUserDTO()));
 			}
-			event.setDescription(eventDTO.getDescription());
-			if(eventDTO.getNotificationsDTO()!=null) {
-				event.setNotifications(eventDTO.getNotificationsDTO());
+			if(eventDTO.getCompany()!= null) {
+				
+				event.setCompany(companyConverter.toEntity(eventDTO.getCompany()));
 			}
-			
-			
+			event.setDescription(eventDTO.getDescription());		
 			event.setCategory(eventDTO.getCategory());
 			event.setName(eventDTO.getName());
 			event.setStartDate(eventDTO.getStartDate());
@@ -38,7 +39,6 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			event.setArguments(eventDTO.getArguments());
 			event.setAgentName(eventDTO.getAgentName());
 			event.setAgentSurname(eventDTO.getAgentSurname());
-			event.setCompany(eventDTO.getCompany());
 		}
 		return event;
 	}
@@ -52,11 +52,11 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			if(event.getUser()!=null) {
 				eventDTO.setUserDTO(userConverter.toDTO(event.getUser()));
 			}
-			eventDTO.setDescription(event.getDescription());
-			if(event.getNotifications()!=null) {
-				eventDTO.setNotificationsDTO(event.getNotifications());
+			if(event.getCompany()!= null) {
+				
+				eventDTO.setCompany(companyConverter.toDTO(event.getCompany()));
 			}
-			
+			eventDTO.setDescription(event.getDescription());		
 			eventDTO.setName(event.getName());
 			eventDTO.setCategory(event.getCategory());
 			eventDTO.setStartDate(event.getStartDate());
@@ -64,7 +64,6 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			eventDTO.setArguments(event.getArguments());
 			eventDTO.setAgentName(event.getAgentName());
 			eventDTO.setAgentSurname(event.getAgentSurname());
-			eventDTO.setCompany(event.getCompany());
 		}
 		return eventDTO;
 	}

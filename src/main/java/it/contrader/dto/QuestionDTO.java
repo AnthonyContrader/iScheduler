@@ -1,10 +1,10 @@
 package it.contrader.dto;
 
-import java.util.ArrayList;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import it.contrader.model.Company;
+import it.contrader.model.Recruiter;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,12 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
-public class HelpDeskDTO {
-	
-	private Long id;
-	private String title;
-	private ArrayList<String> chatDTO;
-	private Long gestorDTO;
-	private Boolean reply; //0 quando l'utente risponde/inserisce, 1 quando l
-	private UserDTO userDTO;
+public class QuestionDTO {
+	private long id;
+	private String question;
+	private String topic;
+	private String sector;
+	private Recruiter recruiter;
+	private Company company;
 }
