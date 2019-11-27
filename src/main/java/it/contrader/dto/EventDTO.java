@@ -31,6 +31,7 @@ public class EventDTO {
 	private String agentSurname;
 	private CompanyDTO company;
 	private UserDTO userDTO;
+	private SectorDTO sectorDTO;
 	//private List<Notification> notificationsDTO;
 
 }

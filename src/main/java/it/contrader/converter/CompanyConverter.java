@@ -12,7 +12,7 @@ public class CompanyConverter extends AbstractConverter <Company,CompanyDTO>{
 	public Company toEntity(CompanyDTO companyDTO) {
 		Company company = null;
 		if (companyDTO != null) {
-			company = new Company(companyDTO.getId(),companyDTO.getName(),companyDTO.getAddress(),companyDTO.getCity(),companyDTO.getSector());			
+			company = new Company(companyDTO.getId(),companyDTO.getName(),companyDTO.getAddress(),companyDTO.getCity(), companyDTO.getImg());			
 		}
 		return company;
 	}
@@ -21,7 +21,7 @@ public class CompanyConverter extends AbstractConverter <Company,CompanyDTO>{
 	public CompanyDTO toDTO(Company company) {
 		CompanyDTO companyDTO = null;
 		if (company != null) {
-			companyDTO = new CompanyDTO(company.getId(),company.getName(),company.getAddress(),company.getCity(),company.getSector());
+			companyDTO = new CompanyDTO(company.getId(),company.getName(),company.getAddress(),company.getCity(), company.getImg());
 			
 		}
 		return companyDTO;

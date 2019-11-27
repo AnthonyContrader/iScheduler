@@ -32,7 +32,9 @@ public class Company {
 	@Nullable
 	private String city;
 	
-	@NotNull
-	private String sector;	
+	
+	private String img;
+	
+	
 }
 

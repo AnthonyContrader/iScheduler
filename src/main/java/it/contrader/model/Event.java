@@ -70,6 +70,10 @@ public class Event {
 	@JoinColumn(name = "idCompany", referencedColumnName = "id")
 	private Company company;
 	
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name = "idSector", referencedColumnName = "id")
+	private Sector sector;
+	
 	/*@OneToMany(mappedBy = "event", cascade = CascadeType.MERGE)
 	private List<Notification> notifications;*/
 }

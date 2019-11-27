@@ -22,7 +22,9 @@ public class CompanyDTO {
 
 	private String city;
 	
-	private String sector;
+	private String img;
+	
+	
 	
 
 }

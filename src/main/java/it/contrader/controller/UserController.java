@@ -38,4 +38,10 @@ public class UserController extends AbstractController<UserDTO>{
 	public UserDTO login( @RequestBody LoginDTO loginDTO ) {
 		return userService.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
 	}
+	
+	/*@PostMapping(value="/getbyuser")
+	public UserDTO getAllByUser(@RequestBody UserDTO userDTO) {
+		Long idUser=userDTO.getId();
+		return userService.findByUser(idUser);
+	}*/
 }

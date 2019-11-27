@@ -10,12 +10,15 @@ import it.contrader.model.Event;
 @Component
 public class EventConverter extends AbstractConverter<Event, EventDTO>{
 
+	
+	//NotificationConverter notificationConverter;
+	
 	@Autowired
-	NotificationConverter notificationConverter;
-	@Autowired
-	UserConverter userConverter;
+	private UserConverter userConverter;
 	@Autowired
 	CompanyConverter companyConverter;
+	@Autowired
+	private SectorConverter sConverter;
 	
 	
 	@Override
@@ -39,6 +42,7 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			event.setArguments(eventDTO.getArguments());
 			event.setAgentName(eventDTO.getAgentName());
 			event.setAgentSurname(eventDTO.getAgentSurname());
+			event.setSector(sConverter.toEntity(eventDTO.getSectorDTO()));
 		}
 		return event;
 	}
@@ -64,6 +68,7 @@ public class EventConverter extends AbstractConverter<Event, EventDTO>{
 			eventDTO.setArguments(event.getArguments());
 			eventDTO.setAgentName(event.getAgentName());
 			eventDTO.setAgentSurname(event.getAgentSurname());
+			eventDTO.setSectorDTO(sConverter.toDTO(event.getSector()));
 		}
 		return eventDTO;
 	}

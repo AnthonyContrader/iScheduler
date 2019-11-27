@@ -1,49 +1,43 @@
 package it.contrader.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
-public class Question {
+@Table(name = "sector")
+
+public class Sector {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
 	@NotNull
-	private String question;
+	private Long id;
 	
+	@Column(name = "name")
 	@NotNull
-	private String topic;
+	private String name;
 	
-	//@NotNull
-	//private String sector;
-	
-	@Nullable
-	@ManyToOne
-	@JoinColumn(name = "recruiterId", referencedColumnName = "id")
-	private Recruiter recruiter;
-	
-	@Nullable
-	@ManyToOne
-	@JoinColumn(name = "companyId", referencedColumnName = "id")
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+	@JoinColumn(name="idQuestion", referencedColumnName="id")
 	private Company company;
 	
-	@Nullable
-	@ManyToOne
-	@JoinColumn(name = "idSector", referencedColumnName="id")
-	private Sector sector;
+
+	
 }
